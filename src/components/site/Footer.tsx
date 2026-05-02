@@ -42,9 +42,9 @@ export function Footer() {
         <div>
           <h4 className="font-display text-lg font-bold mb-4 text-brand-gold">India Office</h4>
           <ul className="space-y-3 text-sm text-secondary-foreground/80">
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /> Plot 53, HIG Phase 1, H.No 6-2-662, Rajeshwari Complex, Vanasthalipuram, Hyderabad, Telangana 500070</li>
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /> +91 81424 45464 · 90524 45464</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /> aroverseas1125@gmail.com</li>
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /><span>Plot 53, HIG Phase 1, H.No 6-2-662, Rajeshwari Complex, Vanasthalipuram, Hyderabad, Telangana 500070</span></li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /><span>+91 81424 45464 · 90524 45464</span></li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" /><span>aroverseas1125@gmail.com</span></li>
           </ul>
         </div>
       </div>
