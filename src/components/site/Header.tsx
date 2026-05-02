@@ -41,19 +41,11 @@ export function Header() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300"
-                activeProps={{ className: "text-primary" }}
+                className="group relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300"
+                activeProps={{ className: "!text-primary [&_span]:scale-x-100" }}
               >
-                {({ isActive }) => (
-                  <>
-                    {n.label}
-                    <span
-                      className={`absolute left-4 right-4 -bottom-0.5 h-0.5 bg-gradient-brand origin-left transition-transform duration-300 ${
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                      }`}
-                    />
-                  </>
-                )}
+                {n.label}
+                <span className="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-gradient-brand origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </Link>
             ))}
             <Link
