@@ -263,16 +263,20 @@ function Index() {
                 viewport={{ once: true }}
                 transition={{ duration: 2.5, ease: "easeInOut" }}
               />
-              {/* Animated plane along path */}
-              <motion.g
-                initial={{ offsetDistance: "0%" }}
-                whileInView={{ offsetDistance: "100%" }}
+              {/* Glowing dot traveling along path */}
+              <motion.circle
+                r="7" fill="var(--brand-gold)"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 6, ease: "easeInOut" }}
-                style={{ offsetPath: "path('M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280')" }}
+                transition={{ delay: 2.5, duration: 0.5 }}
               >
-                <circle r="6" fill="var(--brand-gold)" />
-              </motion.g>
+                <animateMotion
+                  dur="8s"
+                  repeatCount="indefinite"
+                  path="M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280"
+                />
+              </motion.circle>
             </svg>
 
             {/* Station nodes positioned along the curve */}
