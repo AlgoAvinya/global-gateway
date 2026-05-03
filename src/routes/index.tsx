@@ -233,6 +233,108 @@ function Index() {
         </div>
       </section>
 
+      {/* STEP-BY-STEP PROCESS — winding road */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-muted/40 via-background to-muted/40 relative overflow-hidden">
+        <div className="absolute top-10 right-10 h-32 w-32 rounded-full bg-brand-gold/10 blur-3xl animate-float" />
+        <div className="absolute bottom-10 left-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl animate-float" />
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Our Roadmap</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-3 text-secondary font-display">Our Step-by-Step Process</h2>
+            <div className="h-0.5 w-24 bg-gradient-brand mx-auto mb-3" />
+            <p className="text-muted-foreground italic">Guiding You to Study Abroad Success</p>
+          </div>
+
+          {/* Desktop: winding path with 7 stations */}
+          <div className="hidden md:block relative max-w-6xl mx-auto h-[420px]">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 420" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="pathGrad" x1="0" x2="1">
+                  <stop offset="0%" stopColor="var(--brand-red)" />
+                  <stop offset="50%" stopColor="var(--brand-gold)" />
+                  <stop offset="100%" stopColor="var(--brand-navy)" />
+                </linearGradient>
+              </defs>
+              <motion.path
+                d="M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280"
+                stroke="url(#pathGrad)" strokeWidth="3" fill="none" strokeLinecap="round" strokeDasharray="8 8"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2.5, ease: "easeInOut" }}
+              />
+              {/* Animated plane along path */}
+              <motion.g
+                initial={{ offsetDistance: "0%" }}
+                whileInView={{ offsetDistance: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 6, ease: "easeInOut" }}
+                style={{ offsetPath: "path('M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280')" }}
+              >
+                <circle r="6" fill="var(--brand-gold)" />
+              </motion.g>
+            </svg>
+
+            {/* Station nodes positioned along the curve */}
+            {[
+              { ...processSteps[0], left: "3%", top: "22%" },
+              { ...processSteps[1], left: "20%", top: "34%" },
+              { ...processSteps[2], left: "40%", top: "26%" },
+              { ...processSteps[3], left: "60%", top: "30%" },
+              { ...processSteps[4], left: "80%", top: "44%" },
+              { ...processSteps[5], left: "55%", top: "70%" },
+              { ...processSteps[6], left: "20%", top: "70%" },
+            ].map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, scale: 0, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.18, type: "spring", stiffness: 200 }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
+                style={{ left: s.left, top: s.top }}
+              >
+                <div className="relative flex flex-col items-center">
+                  <div className="relative h-16 w-16 rounded-full bg-gradient-brand text-primary-foreground flex items-center justify-center shadow-glow group-hover:scale-125 transition-transform duration-500">
+                    <span className="absolute inset-0 rounded-full border-2 border-brand-gold/40 animate-pulse-ring" />
+                    <s.icon className="h-7 w-7" />
+                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-brand-gold text-secondary text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
+                  </div>
+                  <div className="mt-3 text-center w-36">
+                    <h3 className="font-display font-bold text-secondary text-sm leading-tight">{s.title}</h3>
+                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">{s.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile: vertical timeline */}
+          <div className="md:hidden relative max-w-md mx-auto pl-12">
+            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-red via-brand-gold to-brand-navy rounded-full" />
+            {processSteps.map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="relative mb-6"
+              >
+                <div className="absolute -left-12 top-0 h-12 w-12 rounded-full bg-gradient-brand text-primary-foreground flex items-center justify-center shadow-glow">
+                  <s.icon className="h-5 w-5" />
+                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-brand-gold text-secondary text-[10px] font-bold flex items-center justify-center">{s.n}</span>
+                </div>
+                <div className="bg-card rounded-xl p-4 shadow-card border border-border">
+                  <h3 className="font-display font-bold text-secondary text-sm">{s.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* WHO WE ARE */}
       <section className="py-24 bg-muted/40 relative overflow-hidden">
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-gradient-gold opacity-10 blur-3xl" />
