@@ -79,7 +79,7 @@ const processSteps = [
   { n: 1, icon: Handshake, title: "Initial Consultation", desc: "Assess Goals & Options" },
   { n: 2, icon: School, title: "University Selection", desc: "Choose the Right School" },
   { n: 3, icon: ClipboardCheck, title: "Application Preparation", desc: "Craft Your Application" },
-  { n: 4, icon: GradCap, title: "Test Preparation", desc: "Prepare for Exams" },
+  { n: 4, icon: GraduationCap, title: "Test Preparation", desc: "Prepare for Exams" },
   { n: 5, icon: Send, title: "Submit Applications", desc: "Send Your Documents" },
   { n: 6, icon: Stamp, title: "Visa Assistance", desc: "Get Visa Support" },
   { n: 7, icon: Briefcase, title: "Pre-Departure Guidance", desc: "Plan for Your Move" },
