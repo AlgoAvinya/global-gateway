@@ -2,12 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   GraduationCap, Stethoscope, Plane, Building2, FileCheck, Languages,
-  HeartHandshake, BookOpen, Compass, Award, CheckCircle2, ArrowRight, Quote, Star, Sparkles
+  HeartHandshake, BookOpen, Compass, Award, CheckCircle2, ArrowRight, Quote, Star, Sparkles,
+  Handshake, School, ClipboardCheck, GraduationCap as GradCap, Send, Stamp, Briefcase
 } from "lucide-react";
 import heroImg from "@/assets/hero-airport.jpg";
 import nurseImg from "@/assets/nurse-germany.jpg";
 import germanyImg from "@/assets/germany.jpg";
 import studentsImg from "@/assets/students.jpg";
+import uniBathSpa from "@/assets/uni-bath-spa.png";
+import uniUEL from "@/assets/uni-uel.png";
+import uniRGU from "@/assets/uni-rgu.png";
+import uniHeriot from "@/assets/uni-heriot-watt.png";
+import uniGCU from "@/assets/uni-gcu.png";
+import uniUWL from "@/assets/uni-uwl.png";
+import uniNapier from "@/assets/uni-napier.png";
+import uniHerts from "@/assets/uni-herts.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
