@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   GraduationCap, Stethoscope, Plane, Building2, FileCheck, Languages,
   HeartHandshake, BookOpen, Compass, Award, CheckCircle2, ArrowRight, Quote, Star, Sparkles,
-  Handshake, School, ClipboardCheck, GraduationCap as GradCap, Send, Stamp, Briefcase
+  Handshake, School, ClipboardCheck, Send, Stamp, Briefcase
 } from "lucide-react";
 import heroImg from "@/assets/hero-airport.jpg";
 import nurseImg from "@/assets/nurse-germany.jpg";
