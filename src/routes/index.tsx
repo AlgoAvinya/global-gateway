@@ -75,6 +75,27 @@ const testimonials = [
   { name: "Ram Reddy", text: "My experience with AR was very good. Anil Kumar sir assisted me in selection of university and course. The best part is AR helped me find an accommodation before I arrived." },
 ];
 
+const processSteps = [
+  { n: 1, icon: Handshake, title: "Initial Consultation", desc: "Assess Goals & Options" },
+  { n: 2, icon: School, title: "University Selection", desc: "Choose the Right School" },
+  { n: 3, icon: ClipboardCheck, title: "Application Preparation", desc: "Craft Your Application" },
+  { n: 4, icon: GradCap, title: "Test Preparation", desc: "Prepare for Exams" },
+  { n: 5, icon: Send, title: "Submit Applications", desc: "Send Your Documents" },
+  { n: 6, icon: Stamp, title: "Visa Assistance", desc: "Get Visa Support" },
+  { n: 7, icon: Briefcase, title: "Pre-Departure Guidance", desc: "Plan for Your Move" },
+];
+
+const universities = [
+  { name: "Bath Spa University", logo: uniBathSpa },
+  { name: "University of East London", logo: uniUEL },
+  { name: "Robert Gordon University Aberdeen", logo: uniRGU },
+  { name: "Heriot Watt University", logo: uniHeriot },
+  { name: "Glasgow Caledonian University", logo: uniGCU },
+  { name: "University of West London", logo: uniUWL },
+  { name: "Edinburgh Napier University", logo: uniNapier },
+  { name: "University of Hertfordshire", logo: uniHerts },
+];
+
 function Index() {
   return (
     <>
