@@ -125,33 +125,35 @@ function Index() {
             <p className="text-muted-foreground">Eight pillars orbiting one mission — your global career.</p>
           </div>
 
-          {/* Desktop: orbit layout. Mobile: hex flow */}
+          {/* Desktop: orbit layout. Mobile/Tablet: zig-zag timeline */}
           <div className="hidden lg:flex items-center justify-center">
-            <div className="relative h-[640px] w-[640px]">
-              {/* Concentric rings */}
-              <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-spin-slow" />
-              <div className="absolute inset-12 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" />
-              <div className="absolute inset-24 rounded-full border border-primary/10" />
+            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(72vw, 720px)" }}>
+              {/* Concentric rings — sized as percentages so they always fit */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "62%", height: "82%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "48%", height: "64%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10" style={{ width: "32%", height: "44%" }} />
 
               {/* Center logo */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative h-44 w-44 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10"
+                  className="relative h-40 w-40 xl:h-48 xl:w-48 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10 text-center px-4"
                 >
                   <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-ring" />
-                  <Sparkles className="h-8 w-8 mb-2" />
-                  <span className="font-display font-bold text-lg">AR Overseas</span>
-                  <span className="text-[10px] uppercase tracking-widest text-brand-gold">Trusted Path</span>
+                  <Sparkles className="h-7 w-7 mb-2" />
+                  <span className="font-display font-bold text-base xl:text-lg leading-tight">AR Overseas</span>
+                  <span className="text-[9px] xl:text-[10px] uppercase tracking-widest text-brand-gold mt-1">Trusted Path</span>
                 </motion.div>
               </div>
 
-              {/* Orbiting service nodes */}
+              {/* Orbiting service nodes — positioned via percentages (ellipse) so they scale */}
               {services.map((s, i) => {
                 const angle = (i / services.length) * Math.PI * 2 - Math.PI / 2;
-                const r = 280;
-                const x = Math.cos(angle) * r;
-                const y = Math.sin(angle) * r;
+                // ellipse radii as % of container
+                const rx = 38; // horizontal radius %
+                const ry = 42; // vertical radius %
+                const left = 50 + Math.cos(angle) * rx;
+                const top = 50 + Math.sin(angle) * ry;
                 return (
                   <motion.div
                     key={s.title}
@@ -159,16 +161,16 @@ function Index() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08, type: "spring" }}
-                    whileHover={{ scale: 1.1, zIndex: 20 }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group"
-                    style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
+                    whileHover={{ scale: 1.08, zIndex: 20 }}
+                    className="absolute group"
+                    style={{ left: `${left}%`, top: `${top}%`, transform: "translate(-50%, -50%)" }}
                   >
-                    <div className="relative w-44 text-center">
-                      <div className="mx-auto h-20 w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
-                        <s.icon className="h-8 w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
+                    <div className="relative w-36 xl:w-40 text-center">
+                      <div className="mx-auto h-16 w-16 xl:h-20 xl:w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
+                        <s.icon className="h-7 w-7 xl:h-8 xl:w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
                       </div>
-                      <h3 className="font-display font-bold text-secondary mt-3 text-sm leading-tight">{s.title}</h3>
-                      <p className="text-[11px] text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{s.desc}</p>
+                      <h3 className="font-display font-bold text-secondary mt-3 text-xs xl:text-sm leading-tight">{s.title}</h3>
+                      <p className="text-[10px] xl:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
                     </div>
                   </motion.div>
                 );
