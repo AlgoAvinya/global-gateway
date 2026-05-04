@@ -375,6 +375,14 @@ function Index() {
                   ))}
                 </svg>
 
+                {countries.map((c, i) => {
+                  const positions = [
+                    { l: "30%", t: "40%" }, { l: "32%", t: "25%" }, { l: "55%", t: "30%" },
+                    { l: "52%", t: "32%" }, { l: "60%", t: "32%" }, { l: "58%", t: "40%" },
+                    { l: "78%", t: "70%" },
+                  ];
+                  const pos = positions[i] || positions[0];
+                  return (
                     <motion.div
                       key={c.name}
                       initial={{ scale: 0 }}
@@ -384,8 +392,10 @@ function Index() {
                       className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                       style={{ left: pos.l, top: pos.t }}
                     >
-                      <span className="absolute top-0 left-1/2 -translate-x-1/2 -m-1 h-3 w-3 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                      <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                      <div className="relative">
+                        <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
+                        <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                      </div>
                       <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-brand-gold bg-secondary/80 px-1.5 py-0.5 rounded whitespace-nowrap">{c.name}</span>
                     </motion.div>
                   );
@@ -400,44 +410,13 @@ function Index() {
                   className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                   style={{ left: "68%", top: "52%" }}
                 >
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -m-2 h-7 w-7 rounded-full bg-brand-red/60 animate-pulse-ring" />
-                  <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
+                  <div className="relative">
+                    <span className="absolute inset-0 -m-2 rounded-full bg-brand-red/60 animate-pulse-ring" />
+                    <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
+                  </div>
                   <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-white bg-brand-red/90 px-1.5 py-0.5 rounded whitespace-nowrap">India HQ</span>
                 </motion.div>
 
-                  const positions = [
-                    { l: "30%", t: "40%" }, { l: "32%", t: "25%" }, { l: "55%", t: "30%" },
-                    { l: "52%", t: "32%" }, { l: "60%", t: "32%" }, { l: "58%", t: "40%" },
-                    { l: "78%", t: "70%" },
-                  ];
-                  const pos = positions[i] || positions[0];
-                  return (
-                    <motion.div
-                      key={c.name}
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
-                      style={{ left: pos.l, top: pos.t }}
-                    >
-                      <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                      <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
-                    </motion.div>
-                  );
-                })}
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3, type: "spring" }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: "68%", top: "52%" }}
-                >
-                  <span className="absolute inset-0 -m-2 rounded-full bg-brand-red/60 animate-pulse-ring" />
-                  <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
-                </motion.div>
               </div>
 
               <motion.div
