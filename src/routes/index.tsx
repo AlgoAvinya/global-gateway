@@ -233,108 +233,83 @@ function Index() {
         </div>
       </section>
 
-      {/* STEP-BY-STEP PROCESS — winding road */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-muted/40 via-background to-muted/40 relative overflow-hidden">
-        <div className="absolute top-10 right-10 h-32 w-32 rounded-full bg-brand-gold/10 blur-3xl animate-float" />
-        <div className="absolute bottom-10 left-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl animate-float" />
+      {/* STEP-BY-STEP PROCESS — interactive staircase */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-secondary via-secondary to-brand-navy relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 20% 30%, var(--brand-gold) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--brand-red) 0%, transparent 40%)" }} />
+        {/* Floating particles */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute h-1 w-1 rounded-full bg-brand-gold/60"
+            style={{ left: `${(i * 8.3) % 100}%`, top: `${(i * 17) % 100}%` }}
+            animate={{ y: [0, -30, 0], opacity: [0.2, 1, 0.2] }}
+            transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
+          />
+        ))}
+
         <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Our Roadmap</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-3 text-secondary font-display">Our Step-by-Step Process</h2>
-            <div className="h-0.5 w-24 bg-gradient-brand mx-auto mb-3" />
-            <p className="text-muted-foreground italic">Guiding You to Study Abroad Success</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold">Our Roadmap</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-3 text-white font-display">Our Step-by-Step Process</h2>
+            <div className="h-0.5 w-24 bg-gradient-gold mx-auto mb-3" />
+            <p className="text-white/70 italic">Guiding You to Study Abroad Success</p>
+          </motion.div>
 
-          {/* Desktop: winding path with 7 stations */}
-          <div className="hidden md:block relative max-w-6xl mx-auto h-[420px]">
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 420" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="pathGrad" x1="0" x2="1">
-                  <stop offset="0%" stopColor="var(--brand-red)" />
-                  <stop offset="50%" stopColor="var(--brand-gold)" />
-                  <stop offset="100%" stopColor="var(--brand-navy)" />
-                </linearGradient>
-              </defs>
-              <motion.path
-                d="M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280"
-                stroke="url(#pathGrad)" strokeWidth="3" fill="none" strokeLinecap="round" strokeDasharray="8 8"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
-              />
-              {/* Glowing dot traveling along path */}
-              <motion.circle
-                r="7" fill="var(--brand-gold)"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 2.5, duration: 0.5 }}
-              >
-                <animateMotion
-                  dur="8s"
-                  repeatCount="indefinite"
-                  path="M 30 120 Q 180 60, 320 140 T 620 140 Q 760 60, 900 180 Q 760 320, 600 280 T 280 280 Q 140 320, 30 280"
-                />
-              </motion.circle>
-            </svg>
+          {/* Staircase layout — works on all sizes */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical / diagonal connector line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:w-0.5 bg-gradient-to-b from-brand-gold via-brand-red to-brand-gold md:-translate-x-1/2" />
 
-            {/* Station nodes positioned along the curve */}
-            {[
-              { ...processSteps[0], left: "3%", top: "22%" },
-              { ...processSteps[1], left: "20%", top: "34%" },
-              { ...processSteps[2], left: "40%", top: "26%" },
-              { ...processSteps[3], left: "60%", top: "30%" },
-              { ...processSteps[4], left: "80%", top: "44%" },
-              { ...processSteps[5], left: "55%", top: "70%" },
-              { ...processSteps[6], left: "20%", top: "70%" },
-            ].map((s, i) => (
-              <motion.div
-                key={s.n}
-                initial={{ opacity: 0, scale: 0, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.18, type: "spring", stiffness: 200 }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
-                style={{ left: s.left, top: s.top }}
-              >
-                <div className="relative flex flex-col items-center">
-                  <div className="relative h-16 w-16 rounded-full bg-gradient-brand text-primary-foreground flex items-center justify-center shadow-glow group-hover:scale-125 transition-transform duration-500">
-                    <span className="absolute inset-0 rounded-full border-2 border-brand-gold/40 animate-pulse-ring" />
-                    <s.icon className="h-7 w-7" />
-                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-brand-gold text-secondary text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
+            {processSteps.map((s, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.div
+                  key={s.n}
+                  initial={{ opacity: 0, x: isLeft ? -40 : 40, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.1, type: "spring", stiffness: 120 }}
+                  className={`relative mb-10 md:mb-14 flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                >
+                  {/* Number badge on the line */}
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                      className="relative h-14 w-14 md:h-16 md:w-16 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground border-4 border-secondary"
+                    >
+                      <span className="absolute inset-0 rounded-full border-2 border-brand-gold/40 animate-pulse-ring" />
+                      <s.icon className="h-6 w-6 md:h-7 md:w-7" />
+                      <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-brand-gold text-secondary text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
+                    </motion.div>
                   </div>
-                  <div className="mt-3 text-center w-36">
-                    <h3 className="font-display font-bold text-secondary text-sm leading-tight">{s.title}</h3>
-                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">{s.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
-          {/* Mobile: vertical timeline */}
-          <div className="md:hidden relative max-w-md mx-auto pl-12">
-            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-red via-brand-gold to-brand-navy rounded-full" />
-            {processSteps.map((s, i) => (
-              <motion.div
-                key={s.n}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="relative mb-6"
-              >
-                <div className="absolute -left-12 top-0 h-12 w-12 rounded-full bg-gradient-brand text-primary-foreground flex items-center justify-center shadow-glow">
-                  <s.icon className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-brand-gold text-secondary text-[10px] font-bold flex items-center justify-center">{s.n}</span>
-                </div>
-                <div className="bg-card rounded-xl p-4 shadow-card border border-border">
-                  <h3 className="font-display font-bold text-secondary text-sm">{s.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+                  {/* Content card */}
+                  <div className={`w-full pl-20 md:pl-0 md:w-[44%] ${isLeft ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.03, y: -3 }}
+                      className="group relative bg-white/5 backdrop-blur-md border border-white/10 hover:border-brand-gold/50 rounded-2xl p-5 md:p-6 transition-all duration-500 shadow-card overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 via-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative">
+                        <div className={`text-[10px] uppercase tracking-[0.25em] text-brand-gold mb-1 ${isLeft ? "md:text-right" : "md:text-left"}`}>Step {s.n}</div>
+                        <h3 className="font-display font-bold text-white text-lg md:text-xl leading-tight">{s.title}</h3>
+                        <p className="text-sm text-white/70 mt-1.5">{s.desc}</p>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Spacer for the other half on desktop */}
+                  <div className="hidden md:block md:w-[44%]" />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
