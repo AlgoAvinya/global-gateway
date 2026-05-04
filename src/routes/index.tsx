@@ -155,9 +155,9 @@ function Index() {
             <p className="text-muted-foreground">Eight pillars orbiting one mission — your global career.</p>
           </div>
 
-          {/* Desktop: orbit layout. Mobile/Tablet: zig-zag timeline */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(72vw, 720px)" }}>
+          {/* Orbit layout — same on all devices */}
+          <div className="flex items-center justify-center">
+            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(110vw, 720px)" }}>
               {/* Concentric rings — sized as percentages so they always fit */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "62%", height: "82%" }} />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "48%", height: "64%" }} />
