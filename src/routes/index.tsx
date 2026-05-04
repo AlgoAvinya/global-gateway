@@ -155,9 +155,9 @@ function Index() {
             <p className="text-muted-foreground">Eight pillars orbiting one mission — your global career.</p>
           </div>
 
-          {/* Desktop: orbit layout. Mobile/Tablet: zig-zag timeline */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(72vw, 720px)" }}>
+          {/* Orbit layout — same on all devices */}
+          <div className="flex items-center justify-center">
+            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(110vw, 720px)" }}>
               {/* Concentric rings — sized as percentages so they always fit */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "62%", height: "82%" }} />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "48%", height: "64%" }} />
@@ -167,21 +167,20 @@ function Index() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative h-40 w-40 xl:h-48 xl:w-48 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10 text-center px-4"
+                  className="relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 xl:h-48 xl:w-48 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10 text-center px-2"
                 >
                   <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-ring" />
-                  <Sparkles className="h-7 w-7 mb-2" />
-                  <span className="font-display font-bold text-base xl:text-lg leading-tight">AR Overseas</span>
-                  <span className="text-[9px] xl:text-[10px] uppercase tracking-widest text-brand-gold mt-1">Trusted Path</span>
+                  <Sparkles className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 mb-1 md:mb-2" />
+                  <span className="font-display font-bold text-[10px] sm:text-xs md:text-base xl:text-lg leading-tight">AR Overseas</span>
+                  <span className="text-[7px] sm:text-[8px] xl:text-[10px] uppercase tracking-widest text-brand-gold mt-0.5 md:mt-1">Trusted Path</span>
                 </motion.div>
               </div>
 
               {/* Orbiting service nodes — positioned via percentages (ellipse) so they scale */}
               {services.map((s, i) => {
                 const angle = (i / services.length) * Math.PI * 2 - Math.PI / 2;
-                // ellipse radii as % of container
-                const rx = 38; // horizontal radius %
-                const ry = 42; // vertical radius %
+                const rx = 38;
+                const ry = 42;
                 const left = 50 + Math.cos(angle) * rx;
                 const top = 50 + Math.sin(angle) * ry;
                 return (
@@ -195,40 +194,17 @@ function Index() {
                     className="absolute group"
                     style={{ left: `${left}%`, top: `${top}%`, transform: "translate(-50%, -50%)" }}
                   >
-                    <div className="relative w-36 xl:w-40 text-center">
-                      <div className="mx-auto h-16 w-16 xl:h-20 xl:w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
-                        <s.icon className="h-7 w-7 xl:h-8 xl:w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
+                    <div className="relative w-20 sm:w-28 md:w-36 xl:w-40 text-center">
+                      <div className="mx-auto h-10 w-10 sm:h-14 sm:w-14 md:h-16 md:w-16 xl:h-20 xl:w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
+                        <s.icon className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
                       </div>
-                      <h3 className="font-display font-bold text-secondary mt-3 text-xs xl:text-sm leading-tight">{s.title}</h3>
-                      <p className="text-[10px] xl:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                      <h3 className="font-display font-bold text-secondary mt-1.5 sm:mt-2 md:mt-3 text-[9px] sm:text-[11px] md:text-xs xl:text-sm leading-tight">{s.title}</h3>
+                      <p className="hidden sm:block text-[9px] md:text-[10px] xl:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
                     </div>
                   </motion.div>
                 );
               })}
             </div>
-          </div>
-
-          {/* Mobile/tablet: zig-zag timeline */}
-          <div className="lg:hidden relative max-w-xl mx-auto">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-brand-gold to-secondary -translate-x-1/2" />
-            {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, x: i % 2 ? 30 : -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`relative flex items-center mb-8 ${i % 2 ? "justify-end" : "justify-start"}`}
-              >
-                <div className={`w-[44%] ${i % 2 ? "text-left pl-4" : "text-right pr-4"}`}>
-                  <h3 className="font-display font-bold text-secondary text-base leading-tight">{s.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 h-12 w-12 rotate-45 bg-gradient-brand shadow-glow flex items-center justify-center">
-                  <s.icon className="h-5 w-5 text-primary-foreground -rotate-45" />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -263,8 +239,8 @@ function Index() {
 
           {/* Staircase layout — works on all sizes */}
           <div className="relative max-w-6xl mx-auto">
-            {/* Vertical / diagonal connector line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:w-0.5 bg-gradient-to-b from-brand-gold via-brand-red to-brand-gold md:-translate-x-1/2" />
+            {/* Center connector line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-gold via-brand-red to-brand-gold -translate-x-1/2" />
 
             {processSteps.map((s, i) => {
               const isLeft = i % 2 === 0;
@@ -275,38 +251,39 @@ function Index() {
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 120 }}
-                  className={`relative mb-10 md:mb-14 flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                  className={`relative mb-8 md:mb-14 flex items-center ${isLeft ? "flex-row" : "flex-row-reverse"}`}
                 >
                   {/* Number badge on the line */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="relative h-14 w-14 md:h-16 md:w-16 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground border-4 border-secondary"
+                      className="relative h-10 w-10 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground border-2 sm:border-4 border-secondary"
                     >
                       <span className="absolute inset-0 rounded-full border-2 border-brand-gold/40 animate-pulse-ring" />
-                      <s.icon className="h-6 w-6 md:h-7 md:w-7" />
-                      <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-brand-gold text-secondary text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
+                      <s.icon className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7" />
+                      <span className="absolute -top-1 -right-1 h-4 w-4 sm:h-6 sm:w-6 rounded-full bg-brand-gold text-secondary text-[9px] sm:text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
                     </motion.div>
                   </div>
 
                   {/* Content card */}
-                  <div className={`w-full pl-20 md:pl-0 md:w-[44%] ${isLeft ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}>
+                  <div className={`w-[44%] ${isLeft ? "pr-8 sm:pr-12 md:pr-16 text-right" : "pl-8 sm:pl-12 md:pl-16 text-left"}`}>
                     <motion.div
                       whileHover={{ scale: 1.03, y: -3 }}
-                      className="group relative bg-white/5 backdrop-blur-md border border-white/10 hover:border-brand-gold/50 rounded-2xl p-5 md:p-6 transition-all duration-500 shadow-card overflow-hidden"
+                      className="group relative bg-white/5 backdrop-blur-md border border-white/10 hover:border-brand-gold/50 rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-500 shadow-card overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 via-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative">
-                        <div className={`text-[10px] uppercase tracking-[0.25em] text-brand-gold mb-1 ${isLeft ? "md:text-right" : "md:text-left"}`}>Step {s.n}</div>
-                        <h3 className="font-display font-bold text-white text-lg md:text-xl leading-tight">{s.title}</h3>
-                        <p className="text-sm text-white/70 mt-1.5">{s.desc}</p>
+                        <div className={`text-[8px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-gold mb-1 ${isLeft ? "text-right" : "text-left"}`}>Step {s.n}</div>
+                        <h3 className="font-display font-bold text-white text-xs sm:text-base md:text-xl leading-tight">{s.title}</h3>
+                        <p className="hidden sm:block text-xs md:text-sm text-white/70 mt-1.5">{s.desc}</p>
                       </div>
                     </motion.div>
                   </div>
 
-                  {/* Spacer for the other half on desktop */}
-                  <div className="hidden md:block md:w-[44%]" />
+                  {/* Spacer for the other half */}
+                  <div className="w-[44%]" />
+
                 </motion.div>
               );
             })}
@@ -412,26 +389,34 @@ function Index() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
+                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                       style={{ left: pos.l, top: pos.t }}
                     >
-                      <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                      <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                      <div className="relative">
+                        <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
+                        <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                      </div>
+                      <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-brand-gold bg-secondary/80 px-1.5 py-0.5 rounded whitespace-nowrap">{c.name}</span>
                     </motion.div>
                   );
                 })}
 
+                {/* India HQ */}
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3, type: "spring" }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                   style={{ left: "68%", top: "52%" }}
                 >
-                  <span className="absolute inset-0 -m-2 rounded-full bg-brand-red/60 animate-pulse-ring" />
-                  <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
+                  <div className="relative">
+                    <span className="absolute inset-0 -m-2 rounded-full bg-brand-red/60 animate-pulse-ring" />
+                    <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
+                  </div>
+                  <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-white bg-brand-red/90 px-1.5 py-0.5 rounded whitespace-nowrap">India HQ</span>
                 </motion.div>
+
               </div>
 
               <motion.div
@@ -501,20 +486,15 @@ function Index() {
                 className="group relative"
               >
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-brand opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500" />
-                <div className="relative w-40 h-48 md:w-44 md:h-52 bg-card rounded-2xl shadow-card hover:shadow-elegant border border-border group-hover:border-brand-gold/60 transition-all duration-500 overflow-hidden flex flex-col">
+                <div className="relative w-36 h-36 md:w-44 md:h-44 bg-card rounded-2xl shadow-card hover:shadow-elegant border border-border group-hover:border-brand-gold/60 transition-all duration-500 overflow-hidden flex flex-col">
                   <div className="h-1.5 bg-gradient-brand group-hover:h-2 transition-all" />
                   <div className="flex-1 flex items-center justify-center p-5 bg-gradient-to-b from-white to-muted/30">
                     <img
                       src={u.logo}
                       alt={u.name}
                       loading="lazy"
-                      className="max-h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                      className="max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
                     />
-                  </div>
-                  <div className="px-3 py-3 bg-secondary/[0.03] border-t border-border">
-                    <p className="text-[11px] font-semibold text-center text-secondary leading-tight line-clamp-2">
-                      {u.name}
-                    </p>
                   </div>
                 </div>
               </motion.div>
