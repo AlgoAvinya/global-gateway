@@ -167,21 +167,20 @@ function Index() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative h-40 w-40 xl:h-48 xl:w-48 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10 text-center px-4"
+                  className="relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 xl:h-48 xl:w-48 rounded-full bg-gradient-brand text-primary-foreground flex flex-col items-center justify-center shadow-glow z-10 text-center px-2"
                 >
                   <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-ring" />
-                  <Sparkles className="h-7 w-7 mb-2" />
-                  <span className="font-display font-bold text-base xl:text-lg leading-tight">AR Overseas</span>
-                  <span className="text-[9px] xl:text-[10px] uppercase tracking-widest text-brand-gold mt-1">Trusted Path</span>
+                  <Sparkles className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 mb-1 md:mb-2" />
+                  <span className="font-display font-bold text-[10px] sm:text-xs md:text-base xl:text-lg leading-tight">AR Overseas</span>
+                  <span className="text-[7px] sm:text-[8px] xl:text-[10px] uppercase tracking-widest text-brand-gold mt-0.5 md:mt-1">Trusted Path</span>
                 </motion.div>
               </div>
 
               {/* Orbiting service nodes — positioned via percentages (ellipse) so they scale */}
               {services.map((s, i) => {
                 const angle = (i / services.length) * Math.PI * 2 - Math.PI / 2;
-                // ellipse radii as % of container
-                const rx = 38; // horizontal radius %
-                const ry = 42; // vertical radius %
+                const rx = 38;
+                const ry = 42;
                 const left = 50 + Math.cos(angle) * rx;
                 const top = 50 + Math.sin(angle) * ry;
                 return (
@@ -195,40 +194,17 @@ function Index() {
                     className="absolute group"
                     style={{ left: `${left}%`, top: `${top}%`, transform: "translate(-50%, -50%)" }}
                   >
-                    <div className="relative w-36 xl:w-40 text-center">
-                      <div className="mx-auto h-16 w-16 xl:h-20 xl:w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
-                        <s.icon className="h-7 w-7 xl:h-8 xl:w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
+                    <div className="relative w-20 sm:w-28 md:w-36 xl:w-40 text-center">
+                      <div className="mx-auto h-10 w-10 sm:h-14 sm:w-14 md:h-16 md:w-16 xl:h-20 xl:w-20 rounded-2xl rotate-45 bg-gradient-navy shadow-elegant flex items-center justify-center group-hover:rotate-[225deg] transition-transform duration-700">
+                        <s.icon className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 xl:h-8 xl:w-8 text-brand-gold -rotate-45 group-hover:-rotate-[225deg] transition-transform duration-700" />
                       </div>
-                      <h3 className="font-display font-bold text-secondary mt-3 text-xs xl:text-sm leading-tight">{s.title}</h3>
-                      <p className="text-[10px] xl:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                      <h3 className="font-display font-bold text-secondary mt-1.5 sm:mt-2 md:mt-3 text-[9px] sm:text-[11px] md:text-xs xl:text-sm leading-tight">{s.title}</h3>
+                      <p className="hidden sm:block text-[9px] md:text-[10px] xl:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
                     </div>
                   </motion.div>
                 );
               })}
             </div>
-          </div>
-
-          {/* Mobile/tablet: zig-zag timeline */}
-          <div className="lg:hidden relative max-w-xl mx-auto">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-brand-gold to-secondary -translate-x-1/2" />
-            {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, x: i % 2 ? 30 : -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`relative flex items-center mb-8 ${i % 2 ? "justify-end" : "justify-start"}`}
-              >
-                <div className={`w-[44%] ${i % 2 ? "text-left pl-4" : "text-right pr-4"}`}>
-                  <h3 className="font-display font-bold text-secondary text-base leading-tight">{s.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 h-12 w-12 rotate-45 bg-gradient-brand shadow-glow flex items-center justify-center">
-                  <s.icon className="h-5 w-5 text-primary-foreground -rotate-45" />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
