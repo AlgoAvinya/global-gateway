@@ -486,20 +486,15 @@ function Index() {
                 className="group relative"
               >
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-brand opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500" />
-                <div className="relative w-40 h-48 md:w-44 md:h-52 bg-card rounded-2xl shadow-card hover:shadow-elegant border border-border group-hover:border-brand-gold/60 transition-all duration-500 overflow-hidden flex flex-col">
+                <div className="relative w-36 h-36 md:w-44 md:h-44 bg-card rounded-2xl shadow-card hover:shadow-elegant border border-border group-hover:border-brand-gold/60 transition-all duration-500 overflow-hidden flex flex-col">
                   <div className="h-1.5 bg-gradient-brand group-hover:h-2 transition-all" />
                   <div className="flex-1 flex items-center justify-center p-5 bg-gradient-to-b from-white to-muted/30">
                     <img
                       src={u.logo}
                       alt={u.name}
                       loading="lazy"
-                      className="max-h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                      className="max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
                     />
-                  </div>
-                  <div className="px-3 py-3 bg-secondary/[0.03] border-t border-border">
-                    <p className="text-[11px] font-semibold text-center text-secondary leading-tight line-clamp-2">
-                      {u.name}
-                    </p>
                   </div>
                 </div>
               </motion.div>
