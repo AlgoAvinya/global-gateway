@@ -239,8 +239,8 @@ function Index() {
 
           {/* Staircase layout — works on all sizes */}
           <div className="relative max-w-6xl mx-auto">
-            {/* Vertical / diagonal connector line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:w-0.5 bg-gradient-to-b from-brand-gold via-brand-red to-brand-gold md:-translate-x-1/2" />
+            {/* Center connector line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-gold via-brand-red to-brand-gold -translate-x-1/2" />
 
             {processSteps.map((s, i) => {
               const isLeft = i % 2 === 0;
@@ -251,18 +251,18 @@ function Index() {
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 120 }}
-                  className={`relative mb-10 md:mb-14 flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                  className={`relative mb-8 md:mb-14 flex items-center ${isLeft ? "flex-row" : "flex-row-reverse"}`}
                 >
                   {/* Number badge on the line */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="relative h-14 w-14 md:h-16 md:w-16 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground border-4 border-secondary"
+                      className="relative h-10 w-10 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground border-2 sm:border-4 border-secondary"
                     >
                       <span className="absolute inset-0 rounded-full border-2 border-brand-gold/40 animate-pulse-ring" />
-                      <s.icon className="h-6 w-6 md:h-7 md:w-7" />
-                      <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-brand-gold text-secondary text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
+                      <s.icon className="h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7" />
+                      <span className="absolute -top-1 -right-1 h-4 w-4 sm:h-6 sm:w-6 rounded-full bg-brand-gold text-secondary text-[9px] sm:text-xs font-bold flex items-center justify-center shadow-md">{s.n}</span>
                     </motion.div>
                   </div>
 
