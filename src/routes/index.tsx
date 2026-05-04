@@ -267,22 +267,23 @@ function Index() {
                   </div>
 
                   {/* Content card */}
-                  <div className={`w-full pl-20 md:pl-0 md:w-[44%] ${isLeft ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}>
+                  <div className={`w-[44%] ${isLeft ? "pr-8 sm:pr-12 md:pr-16 text-right" : "pl-8 sm:pl-12 md:pl-16 text-left"}`}>
                     <motion.div
                       whileHover={{ scale: 1.03, y: -3 }}
-                      className="group relative bg-white/5 backdrop-blur-md border border-white/10 hover:border-brand-gold/50 rounded-2xl p-5 md:p-6 transition-all duration-500 shadow-card overflow-hidden"
+                      className="group relative bg-white/5 backdrop-blur-md border border-white/10 hover:border-brand-gold/50 rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-500 shadow-card overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 via-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative">
-                        <div className={`text-[10px] uppercase tracking-[0.25em] text-brand-gold mb-1 ${isLeft ? "md:text-right" : "md:text-left"}`}>Step {s.n}</div>
-                        <h3 className="font-display font-bold text-white text-lg md:text-xl leading-tight">{s.title}</h3>
-                        <p className="text-sm text-white/70 mt-1.5">{s.desc}</p>
+                        <div className={`text-[8px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-gold mb-1 ${isLeft ? "text-right" : "text-left"}`}>Step {s.n}</div>
+                        <h3 className="font-display font-bold text-white text-xs sm:text-base md:text-xl leading-tight">{s.title}</h3>
+                        <p className="hidden sm:block text-xs md:text-sm text-white/70 mt-1.5">{s.desc}</p>
                       </div>
                     </motion.div>
                   </div>
 
-                  {/* Spacer for the other half on desktop */}
-                  <div className="hidden md:block md:w-[44%]" />
+                  {/* Spacer for the other half */}
+                  <div className="w-[44%]" />
+
                 </motion.div>
               );
             })}
