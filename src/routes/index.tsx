@@ -394,9 +394,9 @@ function Index() {
                     >
                       <div className="relative">
                         <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                        <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                        <div className="relative h-2.5 w-2.5 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
                       </div>
-                      <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-brand-gold bg-secondary/80 px-1.5 py-0.5 rounded whitespace-nowrap">{c.name}</span>
+                      <span className="mt-1 text-[8px] sm:text-[9px] font-bold text-brand-gold bg-secondary/90 px-1.5 py-0.5 rounded tracking-widest">{c.code}</span>
                     </motion.div>
                   );
                 })}
