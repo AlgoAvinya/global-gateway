@@ -24,10 +24,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Announcement marquee */}
+      {/* Announcement marquee — seamless circular loop */}
       <div className="bg-gradient-brand text-primary-foreground overflow-hidden border-b border-white/10">
-        <div className="flex whitespace-nowrap animate-marquee py-2">
-          {[...ticker, ...ticker, ...ticker].map((t, i) => (
+        <div className="flex w-max whitespace-nowrap animate-marquee py-2">
+          {[...ticker, ...ticker].map((t, i) => (
             <span key={i} className="inline-flex items-center gap-2 px-8 text-xs md:text-sm font-medium">
               <t.icon className="h-3.5 w-3.5 text-brand-gold" />
               {t.text}
