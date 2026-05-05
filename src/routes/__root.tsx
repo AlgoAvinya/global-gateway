@@ -52,11 +52,27 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouterState } from "@tanstack/react-router";
+
 function RootComponent() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-1"><Outlet /></main>
+      <main className="flex-1 overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={pathname}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
+      </main>
       <Footer />
     </div>
   );
