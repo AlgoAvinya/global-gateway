@@ -52,13 +52,13 @@ const services = [
 
 // Country positions on a stylised world map (% coords)
 const countries = [
-  { name: "USA", flag: "🇺🇸", x: 20, y: 38 },
-  { name: "Canada", flag: "🇨🇦", x: 22, y: 22 },
-  { name: "UK", flag: "🇬🇧", x: 46, y: 28 },
-  { name: "Ireland", flag: "🇮🇪", x: 43, y: 30 },
-  { name: "Germany", flag: "🇩🇪", x: 51, y: 30 },
-  { name: "EU", flag: "🇪🇺", x: 49, y: 38 },
-  { name: "Australia", flag: "🇦🇺", x: 82, y: 72 },
+  { name: "USA", code: "US", flag: "🇺🇸", x: 20, y: 38 },
+  { name: "Canada", code: "CA", flag: "🇨🇦", x: 22, y: 22 },
+  { name: "UK", code: "UK", flag: "🇬🇧", x: 46, y: 28 },
+  { name: "Ireland", code: "IE", flag: "🇮🇪", x: 43, y: 30 },
+  { name: "Germany", code: "DE", flag: "🇩🇪", x: 51, y: 30 },
+  { name: "EU", code: "EU", flag: "🇪🇺", x: 49, y: 38 },
+  { name: "Australia", code: "AU", flag: "🇦🇺", x: 82, y: 72 },
 ];
 
 const skills = [
@@ -394,9 +394,9 @@ function Index() {
                     >
                       <div className="relative">
                         <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                        <div className="relative h-3 w-3 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                        <div className="relative h-2.5 w-2.5 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
                       </div>
-                      <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-brand-gold bg-secondary/80 px-1.5 py-0.5 rounded whitespace-nowrap">{c.name}</span>
+                      <span className="mt-1 text-[8px] sm:text-[9px] font-bold text-brand-gold bg-secondary/90 px-1.5 py-0.5 rounded tracking-widest">{c.code}</span>
                     </motion.div>
                   );
                 })}
