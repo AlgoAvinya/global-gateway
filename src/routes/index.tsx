@@ -52,13 +52,13 @@ const services = [
 
 // Country positions on a stylised world map (% coords)
 const countries = [
-  { name: "USA", flag: "🇺🇸", x: 20, y: 38 },
-  { name: "Canada", flag: "🇨🇦", x: 22, y: 22 },
-  { name: "UK", flag: "🇬🇧", x: 46, y: 28 },
-  { name: "Ireland", flag: "🇮🇪", x: 43, y: 30 },
-  { name: "Germany", flag: "🇩🇪", x: 51, y: 30 },
-  { name: "EU", flag: "🇪🇺", x: 49, y: 38 },
-  { name: "Australia", flag: "🇦🇺", x: 82, y: 72 },
+  { name: "USA", code: "US", flag: "🇺🇸", x: 20, y: 38 },
+  { name: "Canada", code: "CA", flag: "🇨🇦", x: 22, y: 22 },
+  { name: "UK", code: "UK", flag: "🇬🇧", x: 46, y: 28 },
+  { name: "Ireland", code: "IE", flag: "🇮🇪", x: 43, y: 30 },
+  { name: "Germany", code: "DE", flag: "🇩🇪", x: 51, y: 30 },
+  { name: "EU", code: "EU", flag: "🇪🇺", x: 49, y: 38 },
+  { name: "Australia", code: "AU", flag: "🇦🇺", x: 82, y: 72 },
 ];
 
 const skills = [
