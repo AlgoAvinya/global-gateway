@@ -98,6 +98,7 @@ const universities = [
 ];
 
 function Index() {
+  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   return (
     <>
       {/* HERO */}
@@ -390,14 +391,16 @@ function Index() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-                      style={{ left: pos.l, top: pos.t }}
+                      onMouseEnter={() => setHoveredCountry(c.name)}
+                      onMouseLeave={() => setHoveredCountry(null)}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer"
+                      style={{ left: pos.l, top: pos.t, zIndex: hoveredCountry === c.name ? 20 : 10 }}
                     >
                       <div className="relative">
-                        <span className="absolute inset-0 -m-1 rounded-full bg-brand-gold/50 animate-pulse-ring" />
-                        <div className="relative h-2.5 w-2.5 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
+                        <span className={`absolute inset-0 -m-1 rounded-full bg-brand-gold/50 ${hoveredCountry === c.name ? "animate-pulse-ring" : "animate-pulse-ring"}`} />
+                        <motion.div animate={{ scale: hoveredCountry === c.name ? 1.8 : 1 }} className="relative h-2.5 w-2.5 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
                       </div>
-                      <span className="mt-1 text-[8px] sm:text-[9px] font-bold text-brand-gold bg-secondary/90 px-1.5 py-0.5 rounded tracking-widest">{c.code}</span>
+                      <span className={`mt-1 text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded tracking-widest transition-all ${hoveredCountry === c.name ? "bg-brand-gold text-secondary scale-125" : "text-brand-gold bg-secondary/90"}`}>{c.code}</span>
                     </motion.div>
                   );
                 })}
@@ -440,16 +443,18 @@ function Index() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07 }}
                   whileHover={{ x: 6, scale: 1.02 }}
-                  className="group flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-brand-gold hover:shadow-elegant transition-all duration-300 cursor-pointer"
+                  onMouseEnter={() => setHoveredCountry(c.name)}
+                  onMouseLeave={() => setHoveredCountry(null)}
+                  className={`group flex items-center gap-3 p-4 rounded-xl bg-card border transition-all duration-300 cursor-pointer ${hoveredCountry === c.name ? "border-brand-gold shadow-elegant scale-[1.03] bg-accent/40" : "border-border hover:border-brand-gold hover:shadow-elegant"}`}
                 >
-                  <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-muted to-background flex items-center justify-center text-2xl shadow-card group-hover:rotate-12 transition-transform">
+                  <div className={`h-12 w-12 rounded-lg bg-gradient-to-br from-muted to-background flex items-center justify-center text-2xl shadow-card transition-transform ${hoveredCountry === c.name ? "rotate-12 scale-110" : "group-hover:rotate-12"}`}>
                     {c.flag}
                   </div>
                   <div>
-                    <div className="font-display font-bold text-secondary">{c.name}</div>
+                    <div className={`font-display font-bold transition-colors ${hoveredCountry === c.name ? "text-primary" : "text-secondary"}`}>{c.name}</div>
                     <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Study · Work</div>
                   </div>
-                  <ArrowRight className="ml-auto h-4 w-4 text-brand-gold opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                  <ArrowRight className={`ml-auto h-4 w-4 text-brand-gold transition-all ${hoveredCountry === c.name ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"}`} />
                 </motion.div>
               ))}
             </div>
