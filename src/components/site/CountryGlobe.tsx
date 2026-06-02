@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { COUNTRIES, type CountryInfo } from "@/data/countries";
 
 // Client-only dynamic import — react-globe.gl uses three.js / WebGL
-const Globe = lazy(() => import("react-globe.gl").then((m) => ({ default: m.default as any })));
+const Globe = lazy(() => import("react-globe.gl").then((m) => ({ default: m.default as any }))) as any;
 
 export function CountryGlobe() {
   const [mounted, setMounted] = useState(false);
