@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { FloatingContact } from "@/components/site/FloatingContact";
 
 function NotFoundComponent() {
   return (
@@ -40,7 +41,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -68,7 +69,7 @@ function RootComponent() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-1 overflow-x-hidden">
+      <main className="flex-1 overflow-x-hidden pt-[106px] md:pt-[138px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}
@@ -82,6 +83,7 @@ function RootComponent() {
         </AnimatePresence>
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { CountryGlobe } from "@/components/site/CountryGlobe";
 import {
   GraduationCap, Stethoscope, Plane, Building2, FileCheck, Languages,
   HeartHandshake, BookOpen, Compass, Award, CheckCircle2, ArrowRight, Quote, Star, Sparkles,
@@ -51,16 +51,7 @@ const services = [
   { icon: BookOpen, title: "IELTS / TOEFL / PTE / GRE", desc: "Test prep tailored to your destination." },
 ];
 
-// Country positions on a stylised world map (% coords)
-const countries = [
-  { name: "USA", code: "US", flag: "🇺🇸", x: 20, y: 38 },
-  { name: "Canada", code: "CA", flag: "🇨🇦", x: 22, y: 22 },
-  { name: "UK", code: "UK", flag: "🇬🇧", x: 46, y: 28 },
-  { name: "Ireland", code: "IE", flag: "🇮🇪", x: 43, y: 30 },
-  { name: "Germany", code: "DE", flag: "🇩🇪", x: 51, y: 30 },
-  { name: "EU", code: "EU", flag: "🇪🇺", x: 49, y: 38 },
-  { name: "Australia", code: "AU", flag: "🇦🇺", x: 82, y: 72 },
-];
+// Country list moved to src/data/countries.ts (used by CountryGlobe)
 
 const skills = [
   { label: "Student Visas", value: 100 },
@@ -98,7 +89,6 @@ const universities = [
 ];
 
 function Index() {
-  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   return (
     <>
       {/* HERO */}
@@ -159,11 +149,11 @@ function Index() {
 
           {/* Orbit layout — same on all devices */}
           <div className="flex items-center justify-center">
-            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(110vw, 720px)" }}>
+            <div className="relative mx-auto aspect-square" style={{ width: "min(100%, 720px)" }}>
               {/* Concentric rings — sized as percentages so they always fit */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "62%", height: "82%" }} />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "48%", height: "64%" }} />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10" style={{ width: "32%", height: "44%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "78%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "55%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-primary/10" style={{ width: "36%" }} />
 
               {/* Center logo */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -181,10 +171,9 @@ function Index() {
               {/* Orbiting service nodes — positioned via percentages (ellipse) so they scale */}
               {services.map((s, i) => {
                 const angle = (i / services.length) * Math.PI * 2 - Math.PI / 2;
-                const rx = 38;
-                const ry = 42;
-                const left = 50 + Math.cos(angle) * rx;
-                const top = 50 + Math.sin(angle) * ry;
+                const r = 39;
+                const left = 50 + Math.cos(angle) * r;
+                const top = 50 + Math.sin(angle) * r;
                 return (
                   <motion.div
                     key={s.title}
@@ -348,117 +337,7 @@ function Index() {
             <p className="text-muted-foreground">Your destination, our expertise — across continents.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
-            {/* Animated globe */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-square max-w-md mx-auto w-full"
-            >
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-brand-gold/30 animate-spin-slow" />
-              <div className="absolute inset-6 rounded-full border border-dashed border-primary/20 animate-counter-spin" />
-
-              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-brand-navy via-secondary to-brand-navy shadow-elegant overflow-hidden">
-                <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full opacity-30">
-                  <defs>
-                    <radialGradient id="globeGlow" cx="35%" cy="30%">
-                      <stop offset="0%" stopColor="white" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="transparent" />
-                    </radialGradient>
-                  </defs>
-                  <circle cx="100" cy="100" r="98" fill="url(#globeGlow)" />
-                  {[0, 30, 60, 90, 120, 150].map(a => (
-                    <ellipse key={a} cx="100" cy="100" rx={Math.abs(98 * Math.cos((a * Math.PI) / 180))} ry="98" fill="none" stroke="var(--brand-gold)" strokeWidth="0.5" />
-                  ))}
-                  {[20, 50, 80, 110, 140, 170].map(y => (
-                    <line key={y} x1="2" y1={y} x2="198" y2={y} stroke="var(--brand-gold)" strokeWidth="0.4" />
-                  ))}
-                </svg>
-
-                {countries.map((c, i) => {
-                  const positions = [
-                    { l: "30%", t: "40%" }, { l: "32%", t: "25%" }, { l: "55%", t: "30%" },
-                    { l: "52%", t: "32%" }, { l: "60%", t: "32%" }, { l: "58%", t: "40%" },
-                    { l: "78%", t: "70%" },
-                  ];
-                  const pos = positions[i] || positions[0];
-                  return (
-                    <motion.div
-                      key={c.name}
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
-                      onMouseEnter={() => setHoveredCountry(c.name)}
-                      onMouseLeave={() => setHoveredCountry(null)}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer"
-                      style={{ left: pos.l, top: pos.t, zIndex: hoveredCountry === c.name ? 20 : 10 }}
-                    >
-                      <div className="relative">
-                        <span className={`absolute inset-0 -m-1 rounded-full bg-brand-gold/50 ${hoveredCountry === c.name ? "animate-pulse-ring" : "animate-pulse-ring"}`} />
-                        <motion.div animate={{ scale: hoveredCountry === c.name ? 1.8 : 1 }} className="relative h-2.5 w-2.5 rounded-full bg-brand-gold ring-2 ring-white shadow-glow" />
-                      </div>
-                      <span className={`mt-1 text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded tracking-widest transition-all ${hoveredCountry === c.name ? "bg-brand-gold text-secondary scale-125" : "text-brand-gold bg-secondary/90"}`}>{c.code}</span>
-                    </motion.div>
-                  );
-                })}
-
-                {/* India HQ */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3, type: "spring" }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-                  style={{ left: "68%", top: "52%" }}
-                >
-                  <div className="relative">
-                    <span className="absolute inset-0 -m-2 rounded-full bg-brand-red/60 animate-pulse-ring" />
-                    <div className="relative h-7 w-7 rounded-full bg-gradient-brand ring-2 ring-white shadow-glow flex items-center justify-center text-xs">🇮🇳</div>
-                  </div>
-                  <span className="mt-1 text-[8px] sm:text-[10px] font-bold text-white bg-brand-red/90 px-1.5 py-0.5 rounded whitespace-nowrap">India HQ</span>
-                </motion.div>
-
-              </div>
-
-              <motion.div
-                className="absolute inset-0"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-10 w-10 rounded-full bg-gradient-brand shadow-glow flex items-center justify-center text-primary-foreground">
-                  <Plane className="h-5 w-5" />
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <div className="grid grid-cols-2 gap-3">
-              {countries.map((c, i) => (
-                <motion.div
-                  key={c.name}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  whileHover={{ x: 6, scale: 1.02 }}
-                  onMouseEnter={() => setHoveredCountry(c.name)}
-                  onMouseLeave={() => setHoveredCountry(null)}
-                  className={`group flex items-center gap-3 p-4 rounded-xl bg-card border transition-all duration-300 cursor-pointer ${hoveredCountry === c.name ? "border-brand-gold shadow-elegant scale-[1.03] bg-accent/40" : "border-border hover:border-brand-gold hover:shadow-elegant"}`}
-                >
-                  <div className={`h-12 w-12 rounded-lg bg-gradient-to-br from-muted to-background flex items-center justify-center text-2xl shadow-card transition-transform ${hoveredCountry === c.name ? "rotate-12 scale-110" : "group-hover:rotate-12"}`}>
-                    {c.flag}
-                  </div>
-                  <div>
-                    <div className={`font-display font-bold transition-colors ${hoveredCountry === c.name ? "text-primary" : "text-secondary"}`}>{c.name}</div>
-                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Study · Work</div>
-                  </div>
-                  <ArrowRight className={`ml-auto h-4 w-4 text-brand-gold transition-all ${hoveredCountry === c.name ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"}`} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <CountryGlobe />
         </div>
       </section>
 

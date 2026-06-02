@@ -7,7 +7,8 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
-  { to: "/jobs-germany", label: "Jobs In Germany" },
+  { to: "/jobs-germany", label: "Nursing in Germany" },
+  { to: "/ausbildung", label: "Ausbildung" },
   { to: "/enquiry", label: "Enquiry" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -23,7 +24,7 @@ const ticker = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full">
       {/* Announcement marquee — seamless circular loop */}
       <div className="bg-gradient-brand text-primary-foreground overflow-hidden border-b border-white/10">
         <div className="flex w-max whitespace-nowrap animate-marquee py-2">
@@ -54,7 +55,7 @@ export function Header() {
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
             <img src={logo} alt="AR Overseas Consultancy" className="h-12 md:h-14 w-auto transition-transform duration-500 group-hover:scale-105" />
             <div className="hidden sm:block leading-tight">
-              <div className="font-display text-base md:text-lg font-bold text-secondary">AR Overseas</div>
+              <div className="font-display text-base md:text-lg font-bold text-secondary">AR Overseas Consultancy <span className="text-primary">(OPC) Pvt. Ltd.</span></div>
               <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-primary font-semibold">Education to Employment</div>
             </div>
           </Link>

@@ -13,6 +13,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as JobsGermanyRouteImport } from './routes/jobs-germany'
 import { Route as EnquiryRouteImport } from './routes/enquiry'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AusbildungRouteImport } from './routes/ausbildung'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AusbildungRoute = AusbildungRouteImport.update({
+  id: '/ausbildung',
+  path: '/ausbildung',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ausbildung': typeof AusbildungRoute
   '/contact': typeof ContactRoute
   '/enquiry': typeof EnquiryRoute
   '/jobs-germany': typeof JobsGermanyRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ausbildung': typeof AusbildungRoute
   '/contact': typeof ContactRoute
   '/enquiry': typeof EnquiryRoute
   '/jobs-germany': typeof JobsGermanyRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ausbildung': typeof AusbildungRoute
   '/contact': typeof ContactRoute
   '/enquiry': typeof EnquiryRoute
   '/jobs-germany': typeof JobsGermanyRoute
@@ -77,16 +86,25 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/ausbildung'
     | '/contact'
     | '/enquiry'
     | '/jobs-germany'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/enquiry' | '/jobs-germany' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/ausbildung'
+    | '/contact'
+    | '/enquiry'
+    | '/jobs-germany'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/ausbildung'
     | '/contact'
     | '/enquiry'
     | '/jobs-germany'
@@ -96,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AusbildungRoute: typeof AusbildungRoute
   ContactRoute: typeof ContactRoute
   EnquiryRoute: typeof EnquiryRoute
   JobsGermanyRoute: typeof JobsGermanyRoute
@@ -132,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ausbildung': {
+      id: '/ausbildung'
+      path: '/ausbildung'
+      fullPath: '/ausbildung'
+      preLoaderRoute: typeof AusbildungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -152,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AusbildungRoute: AusbildungRoute,
   ContactRoute: ContactRoute,
   EnquiryRoute: EnquiryRoute,
   JobsGermanyRoute: JobsGermanyRoute,
@@ -160,12 +187,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

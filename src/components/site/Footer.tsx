@@ -20,7 +20,7 @@ export function Footer() {
         <div>
           <h4 className="font-display text-lg font-bold mb-4 text-brand-gold">Quick Links</h4>
           <ul className="space-y-2 text-sm">
-            {[["/", "Home"], ["/about", "About Us"], ["/services", "Services"], ["/jobs-germany", "Jobs In Germany"], ["/enquiry", "Enquiry"], ["/contact", "Contact"]].map(([to, label]) => (
+            {[["/", "Home"], ["/about", "About Us"], ["/services", "Services"], ["/jobs-germany", "Nursing in Germany"], ["/ausbildung", "Ausbildung"], ["/enquiry", "Enquiry"], ["/contact", "Contact"]].map(([to, label]) => (
               <li key={to}>
                 <Link to={to} className="text-secondary-foreground/80 hover:text-brand-gold transition-colors duration-300">{label}</Link>
               </li>

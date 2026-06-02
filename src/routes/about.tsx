@@ -26,7 +26,7 @@ const values = [
 
 function About() {
   return (
-    <>
+    <div className="font-editorial [&_h1]:font-editorial [&_h2]:font-editorial [&_h3]:font-editorial [&_h4]:font-editorial [&_p]:font-sans">
       <PageHero title="About Us" crumb="About Us" />
 
       <section className="py-20 bg-background">
@@ -132,6 +132,6 @@ function About() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
