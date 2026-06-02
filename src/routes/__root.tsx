@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { FloatingContact } from "@/components/site/FloatingContact";
 
 function NotFoundComponent() {
   return (
@@ -68,7 +69,7 @@ function RootComponent() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-1 overflow-x-hidden">
+      <main className="flex-1 overflow-x-hidden pt-[106px] md:pt-[138px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}
@@ -82,6 +83,7 @@ function RootComponent() {
         </AnimatePresence>
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }
