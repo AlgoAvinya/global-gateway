@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { CountryGlobe } from "@/components/site/CountryGlobe";
 import {
   GraduationCap, Stethoscope, Plane, Building2, FileCheck, Languages,
   HeartHandshake, BookOpen, Compass, Award, CheckCircle2, ArrowRight, Quote, Star, Sparkles,
@@ -51,16 +51,7 @@ const services = [
   { icon: BookOpen, title: "IELTS / TOEFL / PTE / GRE", desc: "Test prep tailored to your destination." },
 ];
 
-// Country positions on a stylised world map (% coords)
-const countries = [
-  { name: "USA", code: "US", flag: "🇺🇸", x: 20, y: 38 },
-  { name: "Canada", code: "CA", flag: "🇨🇦", x: 22, y: 22 },
-  { name: "UK", code: "UK", flag: "🇬🇧", x: 46, y: 28 },
-  { name: "Ireland", code: "IE", flag: "🇮🇪", x: 43, y: 30 },
-  { name: "Germany", code: "DE", flag: "🇩🇪", x: 51, y: 30 },
-  { name: "EU", code: "EU", flag: "🇪🇺", x: 49, y: 38 },
-  { name: "Australia", code: "AU", flag: "🇦🇺", x: 82, y: 72 },
-];
+// Country list moved to src/data/countries.ts (used by CountryGlobe)
 
 const skills = [
   { label: "Student Visas", value: 100 },
@@ -98,7 +89,6 @@ const universities = [
 ];
 
 function Index() {
-  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   return (
     <>
       {/* HERO */}
