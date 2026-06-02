@@ -131,6 +131,7 @@
   100% { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 35s linear infinite; }
+.animate-marquee:hover, .pause-on-hover:hover .animate-marquee { animation-play-state: paused; }
 
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
