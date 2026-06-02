@@ -149,11 +149,11 @@ function Index() {
 
           {/* Orbit layout — same on all devices */}
           <div className="flex items-center justify-center">
-            <div className="relative mx-auto" style={{ width: "min(100%, 880px)", height: "min(110vw, 720px)" }}>
+            <div className="relative mx-auto aspect-square" style={{ width: "min(100%, 720px)" }}>
               {/* Concentric rings — sized as percentages so they always fit */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "62%", height: "82%" }} />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "48%", height: "64%" }} />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10" style={{ width: "32%", height: "44%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-dashed border-primary/20 animate-spin-slow" style={{ width: "78%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-dashed border-brand-gold/30 animate-counter-spin" style={{ width: "55%" }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full border border-primary/10" style={{ width: "36%" }} />
 
               {/* Center logo */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -171,10 +171,9 @@ function Index() {
               {/* Orbiting service nodes — positioned via percentages (ellipse) so they scale */}
               {services.map((s, i) => {
                 const angle = (i / services.length) * Math.PI * 2 - Math.PI / 2;
-                const rx = 38;
-                const ry = 42;
-                const left = 50 + Math.cos(angle) * rx;
-                const top = 50 + Math.sin(angle) * ry;
+                const r = 39;
+                const left = 50 + Math.cos(angle) * r;
+                const top = 50 + Math.sin(angle) * r;
                 return (
                   <motion.div
                     key={s.title}
