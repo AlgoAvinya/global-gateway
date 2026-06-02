@@ -105,6 +105,11 @@
 }
 
 @layer utilities {
+  .font-editorial { font-family: "Cormorant Garamond", "Playfair Display", serif; letter-spacing: -0.015em; }
+  .font-fraunces  { font-family: "Fraunces", "Playfair Display", serif; letter-spacing: -0.02em; }
+}
+
+@layer utilities {
   .bg-gradient-hero { background-image: var(--gradient-hero); }
   .bg-gradient-brand { background-image: var(--gradient-brand); }
   .bg-gradient-navy { background-image: var(--gradient-navy); }
