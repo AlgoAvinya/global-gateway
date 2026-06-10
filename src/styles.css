@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -94,28 +94,7 @@
 }
 
 @layer base {
-  /* ── Scroll fix: no snapping, natural full-page scroll ── */
-  html {
-    overflow-x: hidden;
-    overflow-y: auto;          /* ensure the page scrolls on html */
-    max-width: 100vw;
-    scroll-snap-type: none !important;
-    height: auto;              /* never lock html to viewport height */
-  }
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-width: 100vw;
-    scroll-snap-type: none !important;
-    min-height: 100vh;
-    height: auto;
-  }
-  /* Kill snap on any element that might have it */
-  *, *::before, *::after {
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
-  }
-
+  html, body { overflow-x: hidden; max-width: 100vw; }
   * { border-color: var(--color-border); }
   body {
     background-color: var(--color-background);
@@ -123,6 +102,11 @@
     font-family: var(--font-sans);
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .font-editorial { font-family: "Cormorant Garamond", "Playfair Display", serif; letter-spacing: -0.015em; }
+  .font-fraunces  { font-family: "Fraunces", "Playfair Display", serif; letter-spacing: -0.02em; }
 }
 
 @layer utilities {
