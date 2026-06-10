@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Eye, Target, Heart, ShieldCheck, Sparkles, Award } from "lucide-react";
-import { PageHero } from "@/components/site/PageHero";
-import consultImg from "@/assets/consultation.jpg";
+import consultImg from "@/assets/2.jpeg";
+import heroDefault from "@/assets/aboutus.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -24,11 +24,80 @@ const values = [
   { icon: Target, label: "Student-Centric" },
 ];
 
+const marqueeStrip = [
+  "AR Overseas Consultancy (OPC) Pvt. Ltd.",
+  "Education to Employment — Your Trusted Path",
+  "Germany · UK · USA · Canada · Australia · Ireland",
+  "Nursing Jobs · Ausbildung · Study Abroad",
+  "100% End-to-End Support",
+];
+
 function About() {
   return (
-    <div className="font-editorial [&_h1]:font-editorial [&_h2]:font-editorial [&_h3]:font-editorial [&_h4]:font-editorial [&_p]:font-sans">
-      <PageHero title="About Us" crumb="About Us" />
+    <div className="font-editorial [&_h1]:font-editorial [&_h2]:font-editorial [&_h3]:font-editorial [&_h4]:font-editorial [&_p]:font-sans" style={{marginTop: -120}}>
 
+      {/* ── PAGE HERO ── */}
+      <section className="relative isolate overflow-hidden text-secondary-foreground min-h-[420px] md:min-h-[480px] flex flex-col justify-between">
+        {/* Background image */}
+        <motion.div
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 -z-10"
+        >
+          <img
+            src={heroDefault}
+            alt="About Us"
+            className="w-full h-full object-cover object-center"
+            style={{width: "65%", height: "100%", objectFit: "fill", justifySelf: "end"}}
+          />
+        </motion.div>
+        {/* lighter overlay so image is clearly visible */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent" />
+
+        <div className="container mx-auto px-4 py-10 md:py-16 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-[11px] uppercase tracking-[0.3em] text-brand-gold mb-3 font-semibold"
+          >
+            AR Overseas Consultancy (OPC) Pvt. Ltd.
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-display text-4xl md:text-6xl font-bold mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+          >
+            About Us
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35 }}
+            className="text-sm text-brand-gold flex items-center gap-2"
+          >
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span>›</span>
+            <span className="text-white/80">About Us</span>
+          </motion.div>
+        </div>
+
+        {/* Scrolling marquee strip */}
+        {/* <div className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm overflow-hidden">
+          <div className="flex w-max whitespace-nowrap animate-marquee py-2.5">
+            {[...marqueeStrip, ...marqueeStrip, ...marqueeStrip].map((t, i) => (
+              <span key={i} className="inline-flex items-center gap-3 px-8 text-xs md:text-sm font-medium text-white/90">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+                {t}
+              </span>
+            ))}
+          </div>
+        </div> */}
+      </section>
+
+      {/* ── WHO WE ARE ── */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <motion.img
@@ -57,6 +126,7 @@ function About() {
         </div>
       </section>
 
+      {/* ── VISION & MISSION ── */}
       <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-6">
           {[
@@ -81,6 +151,7 @@ function About() {
         </div>
       </section>
 
+      {/* ── CORE VALUES ── */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -105,6 +176,7 @@ function About() {
         </div>
       </section>
 
+      {/* ── WHY WE STAND OUT ── */}
       <section className="py-20 bg-gradient-navy text-secondary-foreground">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-4xl font-bold mb-8 text-center">Why We Stand Out</h2>
@@ -132,6 +204,7 @@ function About() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
