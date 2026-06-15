@@ -56,7 +56,7 @@ function Enquiry() {
           <img
             src={heroDefault}
             alt="Enquiry"
-            style={{ width: "55%", height: "100%", objectFit: "fill", justifySelf: "end" }}
+            style={{ width: "50%", height: "100%", objectFit: "fill", justifySelf: "end", padding: 10 }}
           />
         </motion.div>
 

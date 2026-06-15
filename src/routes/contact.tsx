@@ -256,14 +256,14 @@ function Contact() {
             {/* Coloured top bar */}
             <div className="h-2 w-full" style={{ background: "linear-gradient(to right, var(--brand-gold), var(--brand-red), #1e88e5)" }} />
             <iframe
-              title="AR Overseas Office — Vanasthalipuram"
-              src="https://maps.google.com/maps?q=17.32805,78.54376&z=17&output=embed&markers=color:red%7C17.32805,78.54376"
-              width="100%"
-              height="460"
-              style={{ border: 0, display: "block" }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            title="AR Overseas Office — Vanasthalipuram"
+            src="https://maps.google.com/maps?q=Rajeshwari+Complex+Vanasthalipuram+Hyderabad+Telangana+500070&z=17&output=embed"
+            width="100%"
+            height="460"
+  style={{ border: 0, display: "block" }}
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
             {/* Floating address chip */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
@@ -326,7 +326,7 @@ function Contact() {
             >
               <MapPin className="h-4 w-4" /> Get Directions
             </motion.a>
-          </motion.div>
+          </motion.div> 
         </motion.div>
       </section>
     </>

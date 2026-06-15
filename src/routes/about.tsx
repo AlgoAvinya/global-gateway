@@ -37,66 +37,88 @@ function About() {
     <div className="font-editorial [&_h1]:font-editorial [&_h2]:font-editorial [&_h3]:font-editorial [&_h4]:font-editorial [&_p]:font-sans" style={{marginTop: -120}}>
 
       {/* ── PAGE HERO ── */}
-      <section className="relative isolate overflow-hidden text-secondary-foreground min-h-[420px] md:min-h-[480px] flex flex-col justify-between">
-        {/* Background image */}
-        <motion.div
-          initial={{ scale: 1.08, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 -z-10"
+      <section className="relative isolate overflow-hidden text-secondary-foreground min-h-[420px] md:min-h-[480px] flex items-center">
+  {/* Background image on right */}
+  <motion.div
+    initial={{ scale: 1.08, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+    className="absolute inset-0 -z-10 flex justify-end items-center"
+  >
+    <img
+      src={heroDefault}
+      alt="About Us"
+      className="h-full w-auto object-contain object-right"
+      draggable={false}
+      style={{
+        maxWidth: "65%",
+      }}
+    />
+  </motion.div>
+
+  {/* lighter overlay so image is clearly visible */}
+  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent" />
+
+  {/* Content */}
+  <div className="container mx-auto px-4 py-10 md:py-16 relative z-10">
+    <div className="max-w-2xl">
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="text-[11px] uppercase tracking-[0.3em] text-brand-gold mb-3 font-semibold"
+      >
+        AR Overseas Consultancy (OPC) Pvt. Ltd.
+      </motion.div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="font-display text-4xl md:text-6xl font-bold mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+      >
+        About Us
+      </motion.h1>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.35 }}
+        className="text-sm text-brand-gold flex items-center gap-2"
+      >
+        <Link
+          to="/"
+          className="hover:text-white transition-colors"
         >
-          <img
-            src={heroDefault}
-            alt="About Us"
-            className="w-full h-full object-cover object-center"
-            style={{width: "65%", height: "100%", objectFit: "fill", justifySelf: "end"}}
-          />
-        </motion.div>
-        {/* lighter overlay so image is clearly visible */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent" />
+          Home
+        </Link>
 
-        <div className="container mx-auto px-4 py-10 md:py-16 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-[11px] uppercase tracking-[0.3em] text-brand-gold mb-3 font-semibold"
-          >
-            AR Overseas Consultancy (OPC) Pvt. Ltd.
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-4xl md:text-6xl font-bold mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
-          >
-            About Us
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35 }}
-            className="text-sm text-brand-gold flex items-center gap-2"
-          >
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>›</span>
-            <span className="text-white/80">About Us</span>
-          </motion.div>
-        </div>
+        <span>›</span>
 
-        {/* Scrolling marquee strip */}
-        {/* <div className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm overflow-hidden">
-          <div className="flex w-max whitespace-nowrap animate-marquee py-2.5">
-            {[...marqueeStrip, ...marqueeStrip, ...marqueeStrip].map((t, i) => (
-              <span key={i} className="inline-flex items-center gap-3 px-8 text-xs md:text-sm font-medium text-white/90">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
-                {t}
-              </span>
-            ))}
-          </div>
-        </div> */}
-      </section>
+        <span className="text-white/80">
+          About Us
+        </span>
+      </motion.div>
+    </div>
+  </div>
 
+  {/* Scrolling marquee strip */}
+  {/*
+  <div className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm overflow-hidden">
+    <div className="flex w-max whitespace-nowrap animate-marquee py-2.5">
+      {[...marqueeStrip, ...marqueeStrip, ...marqueeStrip].map((t, i) => (
+        <span
+          key={i}
+          className="inline-flex items-center gap-3 px-8 text-xs md:text-sm font-medium text-white/90"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+  */}
+</section>
       {/* ── WHO WE ARE ── */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
