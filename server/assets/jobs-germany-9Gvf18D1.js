@@ -1,8 +1,8 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useEffect } from "react";
 import { useScroll, useTransform, motion, AnimatePresence, useInView } from "framer-motion";
-const jobs1 = "/global-gateway/assets/jobs1-Dv7mTEqq.jpeg";
-const jobs2 = "/global-gateway/assets/jobs2-CWy0dLAn.jpeg";
+const jobs1 = "/assets/jobs1-Dv7mTEqq.jpeg";
+const jobs2 = "/assets/jobs2-CWy0dLAn.jpeg";
 const ease = [0.22, 1, 0.36, 1];
 const stagger = {
   hidden: {},

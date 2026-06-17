@@ -3,16 +3,16 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Stethoscope, HeartHandshake, Building2, FileCheck, Languages, BookOpen, Plane, Star, Shield, Award, Users, Sparkles, CheckCircle2, ChevronDown, Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
-import { f as flagUS, a as flagGB, b as flagCA, c as flagAU, d as flagDE, e as flagEU, g as flagNZ, h as flagIE } from "./ireland-5eUAgl2p.js";
-const heroDefault = "/global-gateway/assets/services-DbBnqtXl.jpeg";
-const mapUS = "/global-gateway/assets/usamap-xgGyyVX1.png";
-const mapGB = "/global-gateway/assets/ukmap-CVj53N5N.png";
-const mapCA = "/global-gateway/assets/canadamap-ih-zpiPO.png";
-const mapAU = "/global-gateway/assets/australiamap-BEz8D7Zt.png";
-const mapDE = "/global-gateway/assets/germanymap-DPn4rFFP.png";
-const mapEU = "/global-gateway/assets/europemap-DwNUuz4A.png";
-const mapNZ = "/global-gateway/assets/newzealandmap-DNFxikro.png";
-const mapIE = "/global-gateway/assets/irelandmap-Dsx9jcll.png";
+import { f as flagUS, a as flagGB, b as flagCA, c as flagAU, d as flagDE, e as flagEU, g as flagNZ, h as flagIE } from "./ireland-CpKUXAsX.js";
+const heroDefault = "/assets/services-DbBnqtXl.jpeg";
+const mapUS = "/assets/usamap-xgGyyVX1.png";
+const mapGB = "/assets/ukmap-CVj53N5N.png";
+const mapCA = "/assets/canadamap-ih-zpiPO.png";
+const mapAU = "/assets/australiamap-BEz8D7Zt.png";
+const mapDE = "/assets/germanymap-DPn4rFFP.png";
+const mapEU = "/assets/europemap-DwNUuz4A.png";
+const mapNZ = "/assets/newzealandmap-DNFxikro.png";
+const mapIE = "/assets/irelandmap-Dsx9jcll.png";
 const ease = [0.22, 1, 0.36, 1];
 const stagger = {
   hidden: {},

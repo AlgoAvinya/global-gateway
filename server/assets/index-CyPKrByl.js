@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect, Suspense, lazy } from "react";
 import { createPortal } from "react-dom";
-import { g as flagNZ, e as flagEU, h as flagIE, b as flagCA, f as flagUS, a as flagGB, c as flagAU, d as flagDE } from "./ireland-5eUAgl2p.js";
+import { g as flagNZ, e as flagEU, h as flagIE, b as flagCA, f as flagUS, a as flagGB, c as flagAU, d as flagDE } from "./ireland-CpKUXAsX.js";
 import { ArrowRight, X, MapPin, Sparkles, GraduationCap, Compass, Plane, BookOpen, Award, FileCheck, Stethoscope, HeartHandshake, Building2, Languages, Handshake, School, ClipboardCheck, Send, Stamp, Briefcase, CheckCircle2, Quote, Star } from "lucide-react";
-import { h as heroImg3 } from "./2-q7vUXJzP.js";
+import { h as heroImg3 } from "./2-BJzn57M3.js";
 const COUNTRIES = [
   {
     code: "DE",
@@ -436,19 +436,19 @@ function CountryGlobe() {
     )
   ] });
 }
-const heroImg = "/global-gateway/assets/hero-airport-BTT6Y2Np.jpg";
-const nurseImg = "/global-gateway/assets/nurse-germany-ChmHxKFO.jpg";
-const germanyImg = "/global-gateway/assets/germany-vKwHbgAZ.jpg";
-const studentsImg = "/global-gateway/assets/students-DE18577p.jpg";
-const uniBathSpa = "/global-gateway/assets/uni-bath-spa-CIgVnHrt.png";
-const uniUEL = "/global-gateway/assets/uni-uel-E-vrYnVj.png";
-const uniRGU = "/global-gateway/assets/uni-rgu-BuYkJIu3.png";
-const uniHeriot = "/global-gateway/assets/uni-heriot-watt-CvBwLh7L.png";
-const uniGCU = "/global-gateway/assets/uni-gcu-CmDgt0VE.png";
-const uniUWL = "/global-gateway/assets/uni-uwl-DJ1YUK-t.png";
-const uniNapier = "/global-gateway/assets/uni-napier-CSBbV-V1.png";
-const uniHerts = "/global-gateway/assets/uni-herts-piJnwQcY.png";
-const heroImg2 = "/global-gateway/assets/1-C6ljmK8S.jpeg";
+const heroImg = "/assets/hero-airport-BTT6Y2Np.jpg";
+const nurseImg = "/assets/nurse-germany-ChmHxKFO.jpg";
+const germanyImg = "/assets/germany-vKwHbgAZ.jpg";
+const studentsImg = "/assets/students-DE18577p.jpg";
+const uniBathSpa = "/assets/uni-bath-spa-CIgVnHrt.png";
+const uniUEL = "/assets/uni-uel-E-vrYnVj.png";
+const uniRGU = "/assets/uni-rgu-BuYkJIu3.png";
+const uniHeriot = "/assets/uni-heriot-watt-CvBwLh7L.png";
+const uniGCU = "/assets/uni-gcu-CmDgt0VE.png";
+const uniUWL = "/assets/uni-uwl-DJ1YUK-t.png";
+const uniNapier = "/assets/uni-napier-CSBbV-V1.png";
+const uniHerts = "/assets/uni-herts-piJnwQcY.png";
+const heroImg2 = "/assets/1-C6ljmK8S.jpeg";
 const counsellingSteps = [{
   icon: Compass,
   label: "Career Counselling"

@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
-const heroDefault = "/global-gateway/assets/enquiry-DC3E0ryj.png";
+const heroDefault = "/assets/enquiry-DC3E0ryj.png";
 const ease = [0.22, 1, 0.36, 1];
 const staggerContainer = {
   hidden: {},

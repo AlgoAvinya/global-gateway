@@ -2,7 +2,7 @@ import { jsxs, Fragment, jsx } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Phone, ArrowUpRight, MapPin, Mail, Globe } from "lucide-react";
-const heroDefault = "/global-gateway/assets/contact-CYXAyK1w.png";
+const heroDefault = "/assets/contact-CYXAyK1w.png";
 const ease = [0.22, 1, 0.36, 1];
 const stagger = {
   hidden: {},

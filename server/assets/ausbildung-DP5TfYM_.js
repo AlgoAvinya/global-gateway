@@ -1,8 +1,8 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useRef, useState } from "react";
 import { useScroll, useTransform, motion, AnimatePresence, useInView } from "framer-motion";
-const ausbildungImg = "/global-gateway/assets/ausbildung-YIVg0tB9.png";
-const ausbildungImg2 = "/global-gateway/assets/ausbildung2-C7H4GGhM.png";
+const ausbildungImg = "/assets/ausbildung-YIVg0tB9.png";
+const ausbildungImg2 = "/assets/ausbildung2-C7H4GGhM.png";
 const ease = [0.22, 1, 0.36, 1];
 const fadeUp = {
   hidden: {

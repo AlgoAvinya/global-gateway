@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
-const appCss = "/global-gateway/assets/styles-Cqadmf7E.css";
-const logo = "/global-gateway/assets/logo-sOK8VVf-.jpg";
+const appCss = "/assets/styles-DLBA0Bxw.css";
+const logo = "/assets/logo-sOK8VVf-.jpg";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
@@ -453,7 +453,7 @@ function RootComponent() {
     /* @__PURE__ */ jsx(FloatingContact, {})
   ] });
 }
-const $$splitComponentImporter$6 = () => import("./services-Cp1Gjk3i.js");
+const $$splitComponentImporter$6 = () => import("./services-DTIBL_uW.js");
 const Route$6 = createFileRoute("/services")({
   head: () => ({
     meta: [{
@@ -471,7 +471,7 @@ const Route$6 = createFileRoute("/services")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-const $$splitComponentImporter$5 = () => import("./jobs-germany-Dpc6uDHg.js");
+const $$splitComponentImporter$5 = () => import("./jobs-germany-9Gvf18D1.js");
 const Route$5 = createFileRoute("/jobs-germany")({
   head: () => ({
     meta: [{
@@ -483,7 +483,7 @@ const Route$5 = createFileRoute("/jobs-germany")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./enquiry-B1c_ZMyt.js");
+const $$splitComponentImporter$4 = () => import("./enquiry-CcWAu-i9.js");
 const Route$4 = createFileRoute("/enquiry")({
   head: () => ({
     meta: [{
@@ -501,7 +501,7 @@ const Route$4 = createFileRoute("/enquiry")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./contact-DQU9KHXp.js");
+const $$splitComponentImporter$3 = () => import("./contact-B82fXgd5.js");
 const Route$3 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -519,7 +519,7 @@ const Route$3 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./ausbildung-BW1J5MbQ.js");
+const $$splitComponentImporter$2 = () => import("./ausbildung-DP5TfYM_.js");
 const Route$2 = createFileRoute("/ausbildung")({
   head: () => ({
     meta: [{
@@ -531,7 +531,7 @@ const Route$2 = createFileRoute("/ausbildung")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./about-Bi_Htav-.js");
+const $$splitComponentImporter$1 = () => import("./about-I46A2Za9.js");
 const Route$1 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -549,7 +549,7 @@ const Route$1 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-D9HQQAPm.js");
+const $$splitComponentImporter = () => import("./index-CyPKrByl.js");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{

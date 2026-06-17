@@ -2,8 +2,8 @@ import { jsxs, jsx } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Eye, Target, ShieldCheck, Award, Sparkles, Heart } from "lucide-react";
-import { h as heroImg3 } from "./2-q7vUXJzP.js";
-const heroDefault = "/global-gateway/assets/aboutus-CDiFRHn9.jpeg";
+import { h as heroImg3 } from "./2-BJzn57M3.js";
+const heroDefault = "/assets/aboutus-CDiFRHn9.jpeg";
 const values = [{
   icon: ShieldCheck,
   label: "Transparency"
