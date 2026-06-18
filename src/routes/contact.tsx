@@ -160,7 +160,7 @@ function Contact() {
 
             {/* Phone */}
             <motion.a
-              href="tel:+918142445464"
+              href="tel:+917396949498"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -178,7 +178,7 @@ function Contact() {
                 <h3 className="font-display text-xl font-bold text-secondary mb-1">Phone</h3>
                 <p className="text-xs text-primary uppercase tracking-widest mb-3 font-semibold">Tap to call</p>
                 <div className="space-y-1">
-                  {["+91 81424 45464", "+91 90524 45464", "+91 8885949498"].map((l) => (
+                  {["+91 73969 49498", "+91 88859 49498", "+91 8885949498"].map((l) => (
                     <p key={l} className="text-sm text-muted-foreground font-medium">{l}</p>
                   ))}
                 </div>
@@ -218,7 +218,7 @@ function Contact() {
 
             {/* Email */}
             <motion.a
-              href="mailto:aroverseas1125@gmail.com"
+              href="mailto:info@aroverseasconsultancy.com"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -236,7 +236,7 @@ function Contact() {
                 <h3 className="font-display text-xl font-bold text-secondary mb-1">E-mail</h3>
                 <p className="text-xs text-primary uppercase tracking-widest mb-3 font-semibold">Send a message</p>
                 <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground font-medium">aroverseas1125@gmail.com</p>
+                  <p className="text-sm text-muted-foreground font-medium">info@aroverseasconsultancy.com</p>
                   <p className="text-sm text-muted-foreground font-medium">www.aroverseasconsultancy.com</p>
                 </div>
                 <ArrowUpRight className="h-4 w-4 mx-auto mt-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -307,7 +307,7 @@ function Contact() {
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <motion.a
-              href="tel:+918142445464"
+              href="tel:+917396949498"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 18 }}

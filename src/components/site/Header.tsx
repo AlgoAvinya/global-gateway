@@ -4,7 +4,7 @@ import {
   Menu, X, Phone, Mail, MapPin,
   Sparkles, Plane, GraduationCap, Stethoscope, Award,
 } from "lucide-react";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo.png";
 
 const nav = [
   { to: "/",             label: "Home"              },
@@ -18,7 +18,7 @@ const nav = [
 
 const ticker = [
   { icon: Sparkles,      text: "Education to Employment — Your Trusted Path"               },
-  { icon: Stethoscope,   text: "Nursing Jobs in Germany — Earn 8–10× More"                 },
+  { icon: Stethoscope,   text: "Nursing Jobs in Germany — Get Started Today"                 },
   { icon: GraduationCap, text: "Admissions Open: Germany · UK · USA · Canada · Australia"  },
   { icon: Award,         text: "100% Visa Success · Free Career Counselling"               },
   { icon: Plane,         text: "Ausbildung Programs — Paid Vocational Training in Germany" },
@@ -60,17 +60,17 @@ export function Header() {
           <div className="w-full flex justify-between items-center px-4 py-1.5">
             {/* Left: phone + email */}
             <div className="flex items-center gap-5">
-              <a href="tel:+918142445464" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+              <a href="tel:+917396949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
                 <Phone className="h-3 w-3 text-brand-gold" />
-                +91 81424 45464
+                +91 73969 49498
               </a>
-              <a href="tel:+919052445464" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+              <a href="tel:+918885949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
                 <Phone className="h-3 w-3 text-brand-gold" />
-                +91 90524 45464
+                +91 88859 49498
               </a>
-              <a href="mailto:aroverseas1125@gmail.com" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+              <a href="mailto:info@aroverseasconsultancy.com" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
                 <Mail className="h-3 w-3 text-brand-gold" />
-                aroverseas1125@gmail.com
+                info@aroverseasconsultancy.com
               </a>
             </div>
             {/* Right: address */}
@@ -156,17 +156,17 @@ export function Header() {
                 ))}
                 {/* Contact info in mobile drawer */}
                 <div className="mt-3 pt-3 border-t border-slate-200 flex flex-col gap-2 text-sm text-slate-600">
-                  <a href="tel:+918142445464" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
+                  <a href="tel:+917396949498" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
                     <Phone className="h-4 w-4 text-brand-gold" />
-                    +91 81424 45464
+                    +91 73969 49498
                   </a>
-                  <a href="tel:+919052445464" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
+                  <a href="tel:+918885949498" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
                     <Phone className="h-4 w-4 text-brand-gold" />
-                    +91 90524 45464
+                    +91 88859 49498
                   </a>
-                  <a href="mailto:aroverseas1125@gmail.com" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
+                  <a href="mailto:info@aroverseasconsultancy.com" className="flex items-center gap-2 px-4 hover:text-brand-gold transition-colors">
                     <Mail className="h-4 w-4 text-brand-gold" />
-                    aroverseas1125@gmail.com
+                    info@aroverseasconsultancy.com
                   </a>
                   <a
                     href={MAPS_URL}

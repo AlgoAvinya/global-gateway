@@ -997,9 +997,9 @@ function JobsGermany() {
           >
             {[
               { href: "tel:+917396949498",               icon: "📞", text: "+91 73969 49498" },
-              { href: "tel:+918142445464",               icon: "📞", text: "+91 81424 45464" },
-              { href: "tel:+919052445464",               icon: "📞", text: "+91 90524 45464" },
-              { href: "mailto:aroverseas1125@gmail.com", icon: "📧", text: "aroverseas1125@gmail.com" },
+              { href: "tel:+917396949498",               icon: "📞", text: "+91 73969 49498" },
+              { href: "tel:+918885949498",               icon: "📞", text: "+91 88859 49498" },
+              { href: "mailto:info@aroverseasconsultancy.com", icon: "📧", text: "info@aroverseasconsultancy.com" },
               { href: "https://aroverseasconsultancy.com", icon: "🌍", text: "aroverseasconsultancy.com" },
             ].map((c) => (
               <motion.a

@@ -45,13 +45,13 @@ const counsellingSteps = [
 
 const services = [
   { icon: Stethoscope, title: "Nursing Jobs in Germany", desc: "Opportunities with top German hospitals." },
-  { icon: HeartHandshake, title: "Ausbildung", desc: "Germany's paid vocational training." },
+  { icon: HeartHandshake, title: "Ausbildung Program", desc: "Germany's paid vocational training." },
   { icon: GraduationCap, title: "Overseas Education", desc: "Germany, UK, Canada, Australia, USA, NZ & EU." },
   { icon: Building2, title: "Healthcare Recruitment", desc: "Hospitals & institutions across Europe." },
   { icon: FileCheck, title: "Visa Guidance", desc: "Complete documentation support end-to-end." },
   { icon: Languages, title: "German Language", desc: "A1 to B2 certification programs." },
   { icon: Plane, title: "Pre & Post Arrival", desc: "Assistance until successful settlement." },
-  { icon: BookOpen, title: "IELTS / TOEFL / PTE / GRE", desc: "Test prep tailored to your destination." },
+  { icon: BookOpen, title: "IELTS / GRE / PTE Classes", desc: "Test prep tailored to your destination." },
 ];
 
 const skills = [

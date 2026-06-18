@@ -6,7 +6,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -62,7 +62,7 @@ export function Footer() {
               ["/about", "About Us"],
               ["/services", "Services"],
               ["/jobs-germany", "Nursing in Germany"],
-              ["/ausbildung", "Ausbildung"],
+              ["/ausbildung", "Ausbildung Program"],
               ["/enquiry", "Enquiry"],
               ["/contact", "Contact"],
             ].map(([to, label]) => (
@@ -108,7 +108,7 @@ export function Footer() {
                 to="/ausbildung"
                 className="text-secondary-foreground/80 hover:text-brand-gold transition-colors duration-300"
               >
-                Ausbildung
+                Ausbildung Program
               </Link>
             </li>
 
@@ -158,33 +158,33 @@ export function Footer() {
             {/* Phone 1 */}
             <li>
               <a
-                href="tel:+918142445464"
+                href="tel:+917396949498"
                 className="flex gap-2 hover:text-brand-gold transition-colors duration-300"
               >
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" />
-                <span>+91 81424 45464</span>
+                <span>+91 73969 49498</span>
               </a>
             </li>
 
             {/* Phone 2 */}
             <li>
               <a
-                href="tel:+919052445464"
+                href="tel:+918885949498"
                 className="flex gap-2 hover:text-brand-gold transition-colors duration-300"
               >
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" />
-                <span>+91 90524 45464</span>
+                <span>+91 88859 49498</span>
               </a>
             </li>
 
             {/* Email */}
             <li>
               <a
-                href="mailto:aroverseas1125@gmail.com"
+                href="mailto:info@aroverseasconsultancy.com"
                 className="flex gap-2 hover:text-brand-gold transition-colors duration-300"
               >
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-brand-gold" />
-                <span>aroverseas1125@gmail.com</span>
+                <span>info@aroverseasconsultancy.com</span>
               </a>
             </li>
           </ul>

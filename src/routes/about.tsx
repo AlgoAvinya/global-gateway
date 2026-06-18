@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Eye, Target, Heart, ShieldCheck, Sparkles, Award } from "lucide-react";
 import consultImg from "@/assets/2.jpeg";
 import heroDefault from "@/assets/aboutus.jpeg";
-
+import { UserCheck, GraduationCap, Globe2, HeadphonesIcon } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -201,26 +201,58 @@ function About() {
       {/* ── WHY WE STAND OUT ── */}
       <section className="py-20 bg-gradient-navy text-secondary-foreground">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-8 text-center">Why We Stand Out</h2>
+          <h2 className="text-4xl font-bold mb-3 text-center">Why We Stand Out</h2>
+          <p className="text-secondary-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+            We don't just process applications — we build careers. Here's what sets us apart.
+          </p>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              "Excellent placement history",
-              "Personalized guidance for every applicant",
-              "Full support from language training to landing your dream country & job",
-              "Strong network of universities & German nurse employers",
-            ].map((t, i) => (
+              {
+                icon: Award,
+                title: "Proven Placement Success",
+                desc: "A consistent track record of successful placements, backed by real outcomes — not just promises.",
+              },
+              {
+                icon: UserCheck,
+                title: "Personalized 1-on-1 Guidance",
+                desc: "Every applicant gets a tailored roadmap based on their qualifications, goals, and target country — never a generic checklist.",
+              },
+              {
+                icon: GraduationCap,
+                title: "End-to-End Support",
+                desc: "From language training and visa documentation to relocation and your first day on the job — we're with you at every step.",
+              },
+              {
+                icon: Globe2,
+                title: "Trusted Global Network",
+                desc: "Strong, verified partnerships with universities and German nurse employers, ensuring genuine opportunities — not middlemen.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Transparent Process",
+                desc: "Clear timelines, honest fee structures, and no hidden surprises — you'll always know exactly where your application stands.",
+              },
+              {
+                icon: HeadphonesIcon,
+                title: "Dedicated After-Placement Care",
+                desc: "Our support doesn't end at placement — we stay connected to help you settle in and succeed abroad.",
+              },
+            ].map((item, i) => (
               <motion.div
-                key={t}
+                key={item.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6"
+                className="flex items-start gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors"
               >
-                <div className="h-10 w-10 rounded-full bg-gradient-brand flex items-center justify-center flex-shrink-0 font-bold text-primary-foreground">
-                  {i + 1}
+                <div className="h-10 w-10 rounded-full bg-gradient-brand flex items-center justify-center flex-shrink-0">
+                  <item.icon className="h-5 w-5 text-primary-foreground" />
                 </div>
-                <p className="text-secondary-foreground/90 mt-1.5">{t}</p>
+                <div>
+                  <h3 className="font-semibold text-secondary-foreground mb-1">{item.title}</h3>
+                  <p className="text-secondary-foreground/80 text-sm leading-relaxed">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1287,8 +1287,8 @@ function Services() {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Phone,  bg: "bg-white/20", content: <span><a href="tel:+919052445464" className="text-white hover:text-yellow-200 transition-colors">+91 90524 45464</a>{" | "}<a href="tel:+918142445464" className="text-white hover:text-yellow-200 transition-colors">81424 45464</a>{" | "}<a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">88859 49498</a></span> },
-                  { icon: Mail,   bg: "bg-white/20",  content: <a href="mailto:aroverseas1125@gmail.com" className="text-white hover:text-yellow-200 transition-colors">aroverseas1125@gmail.com</a> },
+                  { icon: Phone,  bg: "bg-white/20", content: <span><a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">+91 88859 49498</a>{" | "}<a href="tel:+917396949498" className="text-white hover:text-yellow-200 transition-colors">73969 49498</a>{" | "}<a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">88859 49498</a></span> },
+                  { icon: Mail,   bg: "bg-white/20",  content: <a href="mailto:info@aroverseasconsultancy.com" className="text-white hover:text-yellow-200 transition-colors">info@aroverseasconsultancy.com</a> },
                   { icon: MapPin, bg: "bg-white/20", content: <span className="text-white/90">Plot No. 53, HIG Phase 1, Rajeshwari Complex, Vanasthalipuram, Hyderabad – 500070</span> },
                   { icon: Clock,  bg: "bg-white/20",  content: <span className="text-white/90">Mon–Sat: 09:00 AM – 06:00 PM</span> },
                 ].map((row, i) => (

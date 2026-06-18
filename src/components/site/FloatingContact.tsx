@@ -19,7 +19,7 @@ const items = [
       "bg-primary hover:shadow-[0_0_24px_hsl(var(--primary)/0.7)]",
   },
   {
-    href: "mailto:aroverseas1125@gmail.com",
+    href: "mailto:info@aroverseasconsultancy.com",
     label: "Email",
     icon: MdEmail,
     className:
