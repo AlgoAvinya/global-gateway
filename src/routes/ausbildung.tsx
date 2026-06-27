@@ -55,10 +55,9 @@ const programs = [
     pathway: "Pathway to Registered Nurse",
     age: "18–28 Years",
     edu: "12th Pass / Any Stream",
-    lang: "B1 German",
+    lang: "B2 Level German",
     stipend: "€900–€1,200",
     salary: "€2,000–€2,500",
-    extras: ["Flight Ticket Included"],
     bg: "from-red-50 to-blue-50",
     accent: "bg-red-600",
     accentText: "text-red-600",
@@ -75,10 +74,9 @@ const programs = [
     pathway: "Full-time job after completion",
     age: "18–28 Years",
     edu: "12th Pass",
-    lang: "B1 German (Goethe Certified)",
+    lang: "B2 Level German (Goethe Certified)",
     stipend: "€900–€1,200",
     salary: "€2,000–€2,300",
-    extras: ["Male / Female", "Flight Ticket Included"],
     bg: "from-blue-50 to-indigo-50",
     accent: "bg-blue-700",
     accentText: "text-blue-700",
@@ -95,10 +93,9 @@ const programs = [
     pathway: "High-demand engineering sector",
     age: "18–28 Years",
     edu: "12th with Maths (Compulsory)",
-    lang: "B1 German",
+    lang: "B2 Level German",
     stipend: "€1,000–€1,200",
     salary: "€2,000+",
-    extras: ["Flight Ticket Included"],
     bg: "from-red-50 to-orange-50",
     accent: "bg-red-700",
     accentText: "text-red-700",
@@ -115,10 +112,9 @@ const programs = [
     pathway: "Core industry backbone",
     age: "18–28 Years",
     edu: "12th Pass",
-    lang: "B1 German",
+    lang: "B2 Level German",
     stipend: "€1,000–€1,200",
     salary: "€2,000+",
-    extras: ["Flight Ticket Included"],
     bg: "from-blue-50 to-sky-50",
     accent: "bg-blue-700",
     accentText: "text-blue-700",
@@ -135,10 +131,9 @@ const programs = [
     pathway: "Manufacturing & production",
     age: "18–28 Years",
     edu: "12th with Maths / ITI / Diploma",
-    lang: "B1 German",
+    lang: "B2 Level German",
     stipend: "€1,000–€1,200",
     salary: "€2,300–€2,800",
-    extras: ["Flight Ticket Included"],
     bg: "from-red-50 to-pink-50",
     accent: "bg-red-600",
     accentText: "text-red-600",
@@ -155,10 +150,9 @@ const programs = [
     pathway: "Germany's strongest industry",
     age: "18–28 Years",
     edu: "12th Pass / ITI / Diploma",
-    lang: "B1 German (Goethe Certified)",
+    lang: "B2 Level German (Goethe Certified)",
     stipend: "€1,000–€1,200",
     salary: "€2,200–€2,600",
-    extras: ["Male / Female", "Flight Ticket Included"],
     bg: "from-blue-50 to-indigo-50",
     accent: "bg-blue-600",
     accentText: "text-blue-600",
@@ -175,10 +169,9 @@ const programs = [
     pathway: "Guaranteed employment after completion",
     age: "18–28 Years",
     edu: "12th Pass",
-    lang: "B1 German (Goethe Certified) + Willing to learn",
+    lang: "B2 Level German (Goethe Certified) + Willing to learn",
     stipend: "€1,000–€1,200",
     salary: "€2,000+",
-    extras: ["Male / Female", "Flight Ticket Included"],
     bg: "from-orange-50 to-red-50",
     accent: "bg-red-700",
     accentText: "text-red-700",
@@ -195,10 +188,9 @@ const programs = [
     pathway: "Full-time job after graduation",
     age: "18–28 Years",
     edu: "12th / Diploma / BHM / Hotel Management",
-    lang: "B1 German (Goethe Certified)",
+    lang: "B2 Level German (Goethe Certified)",
     stipend: "€1,000–€1,200",
     salary: "€2,000+",
-    extras: ["Male / Female", "Flight Ticket Included"],
     bg: "from-blue-50 to-cyan-50",
     accent: "bg-blue-600",
     accentText: "text-blue-600",
@@ -215,10 +207,9 @@ const programs = [
     pathway: "Guaranteed employment after completion",
     age: "18–28 Years",
     edu: "12th Pass (comfortable with meat products)",
-    lang: "B1 German (No IELTS required)",
+    lang: "B2 Level German (No IELTS required)",
     stipend: "€1,000–€1,200",
     salary: "€2,000+",
-    extras: ["Flight Ticket Included"],
     bg: "from-red-50 to-blue-50",
     accent: "bg-red-600",
     accentText: "text-red-600",
@@ -231,7 +222,7 @@ const benefits = [
   { icon: "💶", label: "Earn While You Learn" },
   { icon: "🎓", label: "No Tuition Fees" },
   { icon: "🏆", label: "Global Certification" },
-  { icon: "✈️", label: "Flight Ticket Included" },
+  { icon: "👨‍💼", label: "Job After Training with 2500 to 3500 Euros Monthly Salary" },
   { icon: "🇩🇪", label: "German PR Pathway" },
   { icon: "👨‍👩‍👧", label: "Family Settlement" },
   { icon: "🛠️", label: "Hands-on Training" },
@@ -240,7 +231,7 @@ const benefits = [
 
 const processSteps = [
   { n: "01", title: "Career Counselling", desc: "Profile evaluation & program selection", icon: "💬" },
-  { n: "02", title: "Language Training", desc: "German A1 → B1 with certified trainers", icon: "🇩🇪" },
+  { n: "02", title: "Language Training", desc: "German A1 → B2 with certified trainers", icon: "🇩🇪" },
   { n: "03", title: "Application & Docs", desc: "Complete documentation support", icon: "📋" },
   { n: "04", title: "Employer Matching", desc: "Matched with German companies", icon: "🤝" },
   { n: "05", title: "Interview Prep", desc: "Mock interviews & communication training", icon: "🎯" },
@@ -406,20 +397,7 @@ function ProgramStrip({ prog, idx }: { prog: typeof programs[0]; idx: number }) 
               {prog.role}
             </p>
 
-            {/* Eligibility row */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
-              {[
-                { label: prog.age, icon: "👤" },
-                { label: prog.edu, icon: "🎓" },
-                { label: prog.lang, icon: "🗣️" },
-                ...prog.extras.map((e) => ({ label: e, icon: "✦" })),
-              ].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border" style={{ color: "#374151", background: "rgba(255,255,255,0.8)", borderColor: "rgba(26,63,160,0.15)" }}>
-                  <span className="text-[10px]">{item.icon}</span>
-                  {item.label}
-                </span>
-              ))}
-            </div>
+
 
             {/* Stipend + Salary */}
             <div className="flex flex-wrap items-end gap-6">
@@ -458,10 +436,7 @@ function ProgramStrip({ prog, idx }: { prog: typeof programs[0]; idx: number }) 
               </div>
             </div>
 
-            {/* Flight included tag */}
-            <div className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full border" style={{ color: "#1A3FA0", borderColor: "rgba(26,63,160,0.2)", background: "rgba(26,63,160,0.05)" }}>
-              <span>✈️</span> Flight Ticket Included
-            </div>
+            
           </motion.div>
         </div>
       </div>
@@ -757,7 +732,7 @@ function Ausbildung() {
                 { label: "Duration", value: "2 – 3.5 Years" },
                 { label: "Certificate", value: "Gesellenbrief (EU Valid)" },
                 { label: "Stipend", value: "€600 – €1,200 / month" },
-                { label: "Eligibility", value: "12th Pass + B1 German" },
+                { label: "Eligibility", value: "12th / Diploma / GraduaƟon + B1 / B2 German" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
                   <span className="text-[10px] font-bold uppercase tracking-wider w-20 flex-shrink-0" style={{ color: "rgba(26,63,160,0.45)" }}>{item.label}</span>
@@ -899,7 +874,7 @@ function Ausbildung() {
 
       {/* ══ MARQUEE 2 ═════════════════════════════════════════════════════════ */}
       <div className="py-3 overflow-hidden" style={{ background: "#F0F4FF", borderBottom: "1px solid rgba(26,63,160,0.1)" }}>
-        <Marquee items={["No Tuition Fees", "Paid Training", "Flight Ticket Included", "B1 German Required", "Age 18–28", "Globally Recognised Certificate", "PR Pathway after Completion"]} speed={40} reverse />
+        <Marquee items={["No Tuition Fees", "Monthly SƟpend with Training", "B2 Level German Required", "Age 18–27", "Globally Recognised Certificate", "PR Pathway after Completion", "Job After Training with 2500 Euros to 3500 Euros Monthly Salary"]} speed={40} reverse />
       </div>
 
       {/* ══ PROGRAMS ══════════════════════════════════════════════════════════ */}
@@ -1111,7 +1086,7 @@ function Ausbildung() {
                           <p className="text-sm mt-3 pl-3 border-l-4" style={{ color: "#374151", borderColor: "#CC1B1B" }}>
                             {[
                               "We evaluate your academic profile, work experience, and German language level to recommend the best Ausbildung program for your career goals.",
-                              "Our certified trainers guide you from A1 through B1 with structured classroom sessions, online support, 20+ model papers, and Goethe/TELC exam preparation.",
+                              "Our certified trainers guide you from A1 through B2 with structured classroom sessions, online support, 20+ model papers, and Goethe/TELC exam preparation.",
                               "We help you collect, translate, and submit all required documents including educational certificates, passport copies, and application forms.",
                               "We match your profile with partner German companies offering Ausbildung positions in your chosen field across different German states.",
                               "Intensive mock interviews, communication coaching, and cultural orientation to ensure you excel in employer interviews.",

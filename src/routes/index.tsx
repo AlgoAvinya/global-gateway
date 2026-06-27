@@ -46,8 +46,8 @@ const counsellingSteps = [
 const services = [
   { icon: Stethoscope, title: "Nursing Jobs in Germany", desc: "Opportunities with top German hospitals." },
   { icon: HeartHandshake, title: "Ausbildung Program", desc: "Germany's paid vocational training." },
-  { icon: GraduationCap, title: "Overseas Education", desc: "Germany, UK, Canada, Australia, USA, NZ & EU." },
-  { icon: Building2, title: "Healthcare Recruitment", desc: "Hospitals & institutions across Europe." },
+  { icon: GraduationCap, title: "Overseas Education", desc: "Germany, UK, Canada, Australia, USA, NZ, Ireland, EU & Top 27+ Countries." },
+  { icon: Building2, title: "Healthcare Studies & Recruitment ", desc: "Hospitals & Institutions across world." },
   { icon: FileCheck, title: "Visa Guidance", desc: "Complete documentation support end-to-end." },
   { icon: Languages, title: "German Language", desc: "A1 to B2 certification programs." },
   { icon: Plane, title: "Pre & Post Arrival", desc: "Assistance until successful settlement." },
@@ -598,13 +598,8 @@ useEffect(() => {
               transition={{ duration: 0.7 }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-3 mb-4">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
-                <span className="text-[10px] uppercase tracking-[0.4em] text-primary font-semibold">Trusted Partners</span>
-                <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
-              </div>
+             
               <h2 className="text-4xl md:text-5xl font-bold text-secondary font-display leading-tight">
-                Our Partner{" "}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-primary via-brand-gold to-primary bg-clip-text text-transparent">
                     Universities
@@ -681,20 +676,7 @@ useEffect(() => {
               }
             `}</style>
 
-            {/* ── Bottom CTA badge ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="flex justify-center mt-10"
-            >
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-widest font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                8 Partner Universities · Direct Admissions
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              </div>
-            </motion.div>
+            
 
           </div>
         </section>

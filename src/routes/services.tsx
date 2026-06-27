@@ -23,7 +23,7 @@ import {
   Users,
   Award,
 } from "lucide-react";
-import heroDefault from "@/assets/services.jpeg";
+import heroDefault from "@/assets/services.png";
 
 // ─── Flag / Map image imports ─────────────────────────────────────────────────
 import flagUS from "@/assets/unitedstates.png";
@@ -77,15 +77,16 @@ const STRIP = [
   "100% End-to-End Support",
 ];
 
+// CHANGED: service 06 label updated to include IELTS/GRE/TOEFL/PTE
 const TABS = [
-  { id: "overseas",   icon: GraduationCap,  label: "Overseas Education",      short: "Education",   color: "from-blue-700 to-blue-900",         activeText: "text-blue-100" },
-  { id: "nursing",    icon: Stethoscope,    label: "Nursing Jobs in Germany",  short: "Nursing",     color: "from-red-600 to-red-700",           activeText: "text-red-100" },
-  { id: "ausbildung", icon: HeartHandshake, label: "Ausbildung",               short: "Ausbildung",  color: "from-orange-500 to-red-600",        activeText: "text-orange-100" },
-  { id: "healthcare", icon: Building2,      label: "Healthcare Recruitment",   short: "Healthcare",  color: "from-teal-600 to-blue-700",         activeText: "text-teal-100" },
-  { id: "visa",       icon: FileCheck,      label: "Visa Guidance",            short: "Visa",        color: "from-blue-600 to-blue-800",         activeText: "text-blue-100" },
-  { id: "language",   icon: Languages,      label: "German Language A1–B2",    short: "Language",    color: "from-yellow-500 to-red-600",        activeText: "text-yellow-100" },
-  { id: "career",     icon: BookOpen,       label: "Career Counselling",       short: "Career",      color: "from-red-600 to-blue-800",          activeText: "text-red-100" },
-  { id: "departure",  icon: Plane,          label: "Pre & Post Departure",     short: "Departure",   color: "from-blue-700 to-red-700",          activeText: "text-blue-100" },
+  { id: "overseas",   icon: GraduationCap,  label: "Overseas Education",                              short: "Education",   color: "from-blue-700 to-blue-900",         activeText: "text-blue-100" },
+  { id: "nursing",    icon: Stethoscope,    label: "Nursing Jobs in Germany",                         short: "Nursing",     color: "from-red-600 to-red-700",           activeText: "text-red-100" },
+  { id: "ausbildung", icon: HeartHandshake, label: "Ausbildung Program",                                      short: "Ausbildung",  color: "from-orange-500 to-red-600",        activeText: "text-orange-100" },
+  { id: "healthcare", icon: Building2,      label: "Healthcare Recruitment",                          short: "Healthcare",  color: "from-teal-600 to-blue-700",         activeText: "text-teal-100" },
+  { id: "visa",       icon: FileCheck,      label: "Visa Guidance",                                   short: "Visa",        color: "from-blue-600 to-blue-800",         activeText: "text-blue-100" },
+  { id: "language",   icon: Languages,      label: "German Language A1–B2, IELTS, GRE, TOEFL & PTE", short: "Language",    color: "from-yellow-500 to-red-600",        activeText: "text-yellow-100" },
+  { id: "career",     icon: BookOpen,       label: "Career Counselling",                              short: "Career",      color: "from-red-600 to-blue-800",          activeText: "text-red-100" },
+  { id: "departure",  icon: Plane,          label: "Pre & Post Departure",                            short: "Departure",   color: "from-blue-700 to-red-700",          activeText: "text-blue-100" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -181,25 +182,27 @@ const counsellingSteps = [
   { n: "5", title: "Documentation & Next-Step Guidance",   desc: "Once the path is clear, we move into execution with dedicated support at every stage.",                                color: "from-blue-600 to-red-600",    shadow: "shadow-blue-300/50" },
 ];
 
+// CHANGED: Student Visa desc updated per PDF
 const visaTypes = [
-  { icon: "🎓", title: "Student Visa",    bg: "from-blue-600 to-blue-800",  shadow: "shadow-blue-300/50",  desc: "For students admitted to German universities or language programs. We handle SOP guidance, financial document review, and embassy preparation." },
+  { icon: "🎓", title: "Student Visa",    bg: "from-blue-600 to-blue-800",  shadow: "shadow-blue-300/50",  desc: "For students admitted to USA, Germany, UK, Canada, Australia, Ireland, Europe and top 27+ Countries universities or language programs. We handle SOP guidance, financial document review, and embassy preparation support." },
   { icon: "💼", title: "Work Visa",       bg: "from-red-500 to-red-700",    shadow: "shadow-red-300/50",   desc: "Skilled worker visa (Fachkräftezuwanderung), Ausbildung visa, and EU Blue Card for highly qualified candidates." },
   { icon: "👨‍👩‍👧", title: "Dependent Visa", bg: "from-blue-700 to-red-600",  shadow: "shadow-blue-300/50",  desc: "For spouses and family members joining you in Germany. We guide through proof of accommodation and family reunification documentation." },
   { icon: "🔍", title: "Job Seeker Visa", bg: "from-red-600 to-blue-700",   shadow: "shadow-red-300/50",   desc: "Enter Germany and search for employment up to 6 months. We assess eligibility and guide through the Chancenkarte (Opportunity Card) if applicable." },
 ];
 
+// CHANGED: Certified Trainers desc updated per PDF; B2 only (not B1/B2)
 const healthcareFeatures = [
-  { icon: "🎓", title: "Certified Trainers",    bg: "bg-blue-700",   desc: "All instructors certified in German with healthcare sector specialization." },
+  { icon: "🎓", title: "Certified Trainers",    bg: "bg-blue-700",   desc: "All instructors certified in German Language Proficiency." },
   { icon: "📅", title: "Flexible Batches",      bg: "bg-red-600",    desc: "Morning, evening, online and offline options to fit your schedule." },
   { icon: "🏥", title: "Medical Vocabulary",    bg: "bg-blue-800",   desc: "Clinical terminology, patient communication, and workplace German for hospitals." },
-  { icon: "📝", title: "Exam Preparation",      bg: "bg-red-700",    desc: "B1 and B2 certification prep with 20+ model papers and mock interviews." },
+  { icon: "📝", title: "Exam Preparation",      bg: "bg-red-700",    desc: "B2 certification prep with 20+ model papers and mock interviews." },
   { icon: "🤝", title: "Employer Placement",    bg: "bg-blue-900",   desc: "Verified hospitals and employer interview support after language training." },
   { icon: "📋", title: "Documentation Support", bg: "bg-red-800",    desc: "Credential recognition, document translation, and German authority submission." },
 ];
 
 const ausbildungSteps = [
   { title: "Profile Evaluation",         color: "from-blue-600 to-blue-700", desc: "We assess your academic background, age, language level, and goals to confirm Ausbildung eligibility." },
-  { title: "German Language A1–B1",      color: "from-red-500 to-red-600",   desc: "Most programs require B1–B2. We provide structured in-house training to get you there." },
+  { title: "German Language A1–B2",      color: "from-red-500 to-red-600",   desc: "Most programs require B2. We provide structured in-house training to get you there." },
   { title: "Sector & Employer Matching", color: "from-blue-700 to-blue-800", desc: "Match your profile with programs in nursing, IT, engineering, hospitality and more." },
   { title: "Contract & Visa Processing", color: "from-red-600 to-red-700",   desc: "Handle your training contract documentation and Germany vocational visa." },
   { title: "Pre-departure & Arrival",    color: "from-blue-600 to-red-600",  desc: "Accommodation guidance, airport coordination, and settling-in orientation in Germany." },
@@ -284,9 +287,10 @@ function OverseasEducationPanel() {
             Whether you want a 1-year fast-track Master's in the UK or a research-intensive MS in
             the USA, we match you to programs that fit your budget, scores, and career goals.
           </Body>
+          {/* CHANGED: "8+" → "27+" destinations */}
           <div className="flex gap-4 mt-8">
             {[
-              { num: "8+",   lbl: "Destinations",    bg: "from-blue-600 to-blue-700",  shadow: "shadow-blue-300/50" },
+              { num: "27+",  lbl: "Destinations",    bg: "from-blue-600 to-blue-700",  shadow: "shadow-blue-300/50" },
               { num: "100%", lbl: "Free Counselling", bg: "from-red-500 to-red-600",    shadow: "shadow-red-300/50" },
               { num: "50%+", lbl: "Min. Eligibility", bg: "from-blue-700 to-red-600",   shadow: "shadow-blue-300/50" },
             ].map((s) => (
@@ -310,13 +314,14 @@ function OverseasEducationPanel() {
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
               <h4 className="text-xs uppercase tracking-widest text-red-600 font-bold">What's Included</h4>
             </div>
+            {/* CHANGED: "SOP, LOR & Resume Preparation" → "Support"; "Visa Filing & Interview Coaching" → "Preparation Support" */}
             <ul className="space-y-3 relative">
               {[
                 "Free Career Counselling & Country Guidance",
                 "Personalized University & Course Shortlisting",
-                "SOP, LOR & Resume Preparation",
+                "SOP, LOR & Resume Preparation Support",
                 "Scholarship & Education Loan Assistance",
-                "Visa Filing & Interview Coaching",
+                "Visa Filing & Interview Preparation Support",
                 "Pre-Departure Orientation",
                 "Post-Arrival Support",
               ].map((item) => (
@@ -356,7 +361,7 @@ function NursingJobsPanel() {
             programs, and clear pathways to permanent residency.
           </p>
           <Link
-            to="/jobs_in_germany"
+            to="/jobs-germany"
             className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-red-600 font-black text-sm px-7 py-3.5 rounded-full transition-all shadow-xl"
           >
             View Nursing Jobs in Germany <ArrowRight className="h-4 w-4" />
@@ -460,9 +465,37 @@ function AusbildungPanel() {
         </motion.div>
       </div>
 
+      {/* ── Ausbildung Program Eligibility Checklist ── */}
+      <motion.div variants={fadeUp}>
+        <div className="flex items-center gap-2 mb-6">
+          <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+          <h3 className="font-display text-lg font-bold text-secondary">
+            For Ausbildung Program
+          </h3>
+        </div>
+        <div className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-red-50 p-6 shadow-md">
+          <ul className="space-y-3">
+            {[
+              "Eligibility Check for Ausbildung Program",
+              "German Language Guidance A1–B2",
+              "Notary, Translation & Documentation Process",
+              "Interview Preparation Assistance",
+              "Employer Matching & Ausbildung Contracts",
+              "Ausbildung Visa & Germany Registration Support",
+              "Family Reunion & PR Guidance",
+            ].map((item) => (
+              <Check key={item} color="text-red-500">
+                <span className="text-foreground/80">{item}</span>
+              </Check>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* CHANGED: Age 18–35 → 18–27; 10th removed → 12th / Diploma / Graduation; B1 target → B2 target */}
       <Banner>
-        <strong className="text-red-600">Who can apply?</strong> Candidates aged 18–35 with 10th /
-        12th pass or graduation. Willingness to learn German (A1 start, B1 target). No prior work
+        <strong className="text-red-600">Who can apply?</strong> Candidates aged 18–27 with 12th /
+        Diploma / Graduation. Willingness to learn German (A1 start, B2 target). No prior work
         experience required for many programs. Both freshers and experienced professionals welcome.
       </Banner>
     </motion.div>
@@ -496,8 +529,9 @@ function HealthcarePanel() {
           Professional Training with{" "}
           <span className="bg-gradient-to-r from-blue-700 to-red-600 bg-clip-text text-transparent">Certified Trainers</span>
         </h3>
+        {/* CHANGED: "minimum B1/B2" → "minimum B2" */}
         <Body className="max-w-xl mb-7">
-          Healthcare professionals require minimum B1/B2 German proficiency to work in Germany. Our
+          Healthcare professionals require minimum B2 German proficiency to work in Germany. Our
           certified trainers deliver professional, exam-focused language training to help you achieve
           the exact level required for your job and visa — with flexible batch timings and personalized attention.
         </Body>
@@ -591,11 +625,12 @@ function VisaPanel() {
         </div>
       </motion.div>
 
+      {/* CHANGED: Pull quote updated — "student visas for all top 27+ Countries and work visas for Germany" */}
       <Banner>
         <strong className="text-red-600">High Visa Success Rate.</strong> Our transparent process
         and thorough documentation review have helped hundreds of students and professionals secure
-        German visas. We never promise what we can't deliver — and we prepare you for what the
-        consulate actually looks for.
+        student visas for all top 27+ Countries and work visas for Germany. We never promise what
+        we can't deliver — and we prepare you for what the consulate actually looks for.
       </Banner>
     </motion.div>
   );
@@ -606,14 +641,16 @@ function LanguagePanel() {
     <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-10">
       <motion.div variants={fadeUp} className="max-w-2xl">
         <Eyebrow>Language Training</Eyebrow>
+        {/* CHANGED: Headline updated to include IELTS, GRE, TOEFL & PTE */}
         <Heading>
-          German Language Training{" "}
-          <span className="bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">A1 to B2</span>
+          German Language A1–B2, IELTS, GRE,{" "}
+          <span className="bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">TOEFL & PTE Classes</span>
         </Heading>
         <Body>
           Whether you're preparing for a nursing job, an Ausbildung program, or a Master's at a
           German university, language proficiency is your most important asset. Our structured
-          curriculum takes you from complete beginner to professional fluency.
+          curriculum takes you from complete beginner to professional fluency — and our test-prep
+          classes cover IELTS, GRE, TOEFL and PTE for study and immigration abroad.
         </Body>
       </motion.div>
 
@@ -689,6 +726,36 @@ function LanguagePanel() {
         </div>
       </motion.div>
 
+      {/* ADDED: IELTS / GRE / TOEFL / PTE section */}
+      <motion.div variants={fadeUp}>
+        <h3 className="font-display text-lg font-bold text-secondary mb-5">Test Preparation Classes</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { code: "IELTS", bg: "from-blue-600 to-blue-700", shadow: "shadow-blue-300/50", ring: "ring-blue-300", desc: "International English Language Testing System — required for UK, Australia, Canada & New Zealand admissions and immigration." },
+            { code: "GRE",   bg: "from-red-500 to-red-600",   shadow: "shadow-red-300/50",  ring: "ring-red-300",  desc: "Graduate Record Examination — required for MS programs in USA, UK and other top destinations." },
+            { code: "TOEFL", bg: "from-blue-700 to-blue-800", shadow: "shadow-blue-300/50", ring: "ring-blue-300", desc: "Test of English as a Foreign Language — widely accepted across USA, Canada, Europe & Australia for university admissions." },
+            { code: "PTE",   bg: "from-red-600 to-red-700",   shadow: "shadow-red-300/50",  ring: "ring-red-300",  desc: "Pearson Test of English — accepted for study, work & migration visas across multiple countries." },
+          ].map((t, i) => (
+            <motion.div
+              key={t.code}
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1, ease }}
+              whileHover={{ y: -8, scale: 1.04 }}
+              className={`relative rounded-2xl overflow-hidden shadow-xl ${t.shadow} ring-2 ${t.ring} transition-all duration-350`}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${t.bg}`} />
+              <div className="absolute -bottom-4 -right-4 h-20 w-20 rounded-full bg-white/15" />
+              <div className="absolute top-0 right-0 h-16 w-16 rounded-bl-full bg-black/10" />
+              <div className="relative p-6">
+                <span className="font-display text-5xl font-black text-white drop-shadow-lg block mb-3">{t.code}</span>
+                <p className="text-xs text-white/90 leading-relaxed">{t.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
       <Banner>
         AR Overseas Consultancy assists with{" "}
         <strong className="text-red-600">language training, recruitment, employer interviews, and visa processing</strong>{" "}
@@ -738,8 +805,34 @@ function CareerPanel() {
 
       <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-6">
         {[
-          { label: "For Study Abroad", col: "bg-blue-600", border: "border-blue-200", bg: "from-blue-50 to-blue-100", check: "text-red-500", items: ["Course & Career Path Analysis","Country, Course & University Shortlisting","Eligibility & Profile Evaluation","Budget Planning & Scholarships","Post-Study Work & PR Overview","SOP, LOR & Resume Preparation assistance","Visa Filing & Interview Preparation"] },
-          { label: "For Nurse Jobs in Germany", col: "bg-red-600", border: "border-red-200", bg: "from-red-50 to-red-100", check: "text-blue-600", items: ["Eligibility Check for Germany Nursing Program","German Language Guidance A1–B2","Recognition & Documentation Process","Employer Matching & Job Contracts","Work Visa & Germany Registration Support","Employer Interview Preparation Assistance","Family Reunion & PR Guidance"] },
+          {
+            label: "For Study Abroad",
+            col: "bg-blue-600", border: "border-blue-200", bg: "from-blue-50 to-blue-100", check: "text-red-500",
+            // CHANGED: "Visa Filing & Interview Preparation" → "Visa Filing & Interview Preparation Support"
+            items: [
+              "Course & Career Path Analysis",
+              "Country, Course & University Shortlisting",
+              "Eligibility & Profile Evaluation",
+              "Budget Planning & Scholarships",
+              "Post-Study Work & PR Overview",
+              "SOP, LOR & Resume Preparation assistance",
+              "Visa Filing & Interview Preparation Support",
+            ],
+          },
+          {
+            label: "For Nurse Jobs in Germany",
+            col: "bg-red-600", border: "border-red-200", bg: "from-red-50 to-red-100", check: "text-blue-600",
+            // CHANGED: "Employer Matching & Job Contracts" → "Employer Matching & Job Contracts Assistance"
+            items: [
+              "Eligibility Check for Germany Nursing Program",
+              "German Language Guidance A1–B2",
+              "Recognition & Documentation Process",
+              "Employer Matching & Job Contracts Assistance",
+              "Work Visa & Germany Registration Support",
+              "Employer Interview Preparation Assistance",
+              "Family Reunion & PR Guidance",
+            ],
+          },
         ].map((col) => (
           <div key={col.label} className={`rounded-2xl border ${col.border} bg-gradient-to-br ${col.bg} p-6 shadow-md`}>
             <div className="flex items-center gap-2 mb-5 pb-3 border-b border-black/5">
@@ -782,8 +875,35 @@ function DeparturePanel() {
 
       <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-6">
         {[
-          { emoji: "✈️", title: "Pre-Departure Services", bg: "from-blue-600 to-blue-700", border: "border-blue-200", check: "text-red-500", items: ["Complete pre-departure orientation session","Travel booking and flight guidance","Accommodation research & shortlisting","Banking & SIM card pre-arrival checklist","University / employer enrollment documentation","Health insurance guidance","Currency, cost-of-living & budgeting briefing","Cultural orientation for Germany / destination country"] },
-          { emoji: "🏡", title: "Post-Arrival Support",   bg: "from-red-500 to-red-600",   border: "border-red-200",  check: "text-blue-600", items: ["Airport pickup coordination assistance","City registration (Anmeldung) guidance for Germany","Local SIM and bank account setup guidance","University / hospital onboarding support","Housing and flatmate guidance","Integration into local Indian community","Public transport and city navigation tips","Ongoing WhatsApp / remote support access"] },
+          {
+            emoji: "✈️", title: "Pre-Departure Services",
+            bg: "from-blue-600 to-blue-700", border: "border-blue-200", check: "text-red-500",
+            // CHANGED: three bullet texts updated per PDF
+            items: [
+              "Complete pre-departure orientation session",
+              "Travel booking and flight guidance",
+              "Accommodation Research and Shortlisting Support",
+              "Banking & SIM Card Pre-arrival Checklist Guidance",
+              "University / Employer Enrollment Documentation Support",
+              "Health insurance guidance",
+              "Currency, cost-of-living & budgeting briefing",
+              "Cultural orientation for Germany / destination country",
+            ],
+          },
+          {
+            emoji: "🏡", title: "Post-Arrival Support",
+            bg: "from-red-500 to-red-600", border: "border-red-200", check: "text-blue-600",
+            items: [
+              "Airport pickup coordination assistance",
+              "City registration (Anmeldung) guidance for Germany",
+              "Local SIM and bank account setup guidance",
+              "University / hospital onboarding support",
+              "Housing and flatmate guidance",
+              "Integration into local Indian community",
+              "Public transport and city navigation tips",
+              "Ongoing WhatsApp / remote support access",
+            ],
+          },
         ].map((col) => (
           <motion.div key={col.title} whileHover={{ y: -3 }} className={`rounded-2xl overflow-hidden shadow-xl transition-all duration-350`}>
             <div className={`bg-gradient-to-r ${col.bg} p-5 flex items-center gap-3`}>
@@ -927,27 +1047,16 @@ function Services() {
         </span>
       </motion.div>
 
+      {/* CHANGED: "8+ Destinations" → "27+ Destinations" */}
       <motion.div
         variants={fadeUp}
         className="flex flex-wrap gap-3"
       >
         {[
-          {
-            label: "8+ Destinations",
-            bg: "bg-blue-700/80 border-blue-300/50",
-          },
-          {
-            label: "Free Counselling",
-            bg: "bg-red-600/80 border-red-300/50",
-          },
-          {
-            label: "100% End-to-End",
-            bg: "bg-blue-800/80 border-blue-300/50",
-          },
-          {
-            label: "Hyderabad Based",
-            bg: "bg-red-700/80 border-red-300/50",
-          },
+          { label: "27+ Destinations",  bg: "bg-blue-700/80 border-blue-300/50" },
+          { label: "Free Counselling",  bg: "bg-red-600/80 border-red-300/50" },
+          { label: "100% End-to-End",   bg: "bg-blue-800/80 border-blue-300/50" },
+          { label: "Hyderabad Based",   bg: "bg-red-700/80 border-red-300/50" },
         ].map((tag) => (
           <span
             key={tag.label}
@@ -1127,12 +1236,12 @@ function Services() {
             <motion.h2 variants={fadeUp} className="font-display text-4xl md:text-5xl font-black mt-2 text-secondary">
               Destinations We Offer
             </motion.h2>
+            {/* CHANGED: "Eight world-class" → "27+ world-class" */}
             <motion.p variants={fadeUp} className="text-muted-foreground mt-3 text-sm">
-              Eight world-class destinations · One trusted partner.
+              27+ world-class destinations · One trusted partner.
             </motion.p>
           </motion.div>
 
-          {/* ── Destination Cards with flag/map background ── */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destinations.map((d, i) => (
               <motion.div
@@ -1144,25 +1253,15 @@ function Services() {
                 whileHover={{ y: -9, scale: 1.025 }}
                 className="group relative rounded-3xl overflow-hidden flex-col justify-end"
               >
-                {/* ── Flag / Map background image ── */}
                 <div className="absolute inset-0 flex items-center justify-center p-4 overflow-hidden">
-  <img
-    src={d.mapImg}
-    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
-  />
-</div>
-
-
-                {/* ── Dark gradient overlay — bottom-heavy so text reads clearly ── */}
+                  <img
+                    src={d.mapImg}
+                    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/15" />
-
-                {/* ── Subtle brand tint ── */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/15" />
-
-                {/* ── Card content ── */}
                 <div className="relative p-6 flex flex-col gap-3">
-
-                  {/* Flag image + name + duration */}
                   <div className="flex items-center gap-3">
                     <img
                       src={d.flagImg}
@@ -1175,13 +1274,9 @@ function Services() {
                       <div className="text-[10px] text-white/70 font-bold uppercase tracking-widest mt-0.5">{d.duration}</div>
                     </div>
                   </div>
-
-                  {/* PSW badge */}
                   <span className="inline-block self-start text-[10px] font-black text-white bg-blue-700/80 border border-blue-400/40 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
                     PSW: {d.psw}
                   </span>
-
-                  {/* Programs list */}
                   <ul className="space-y-1.5">
                     {d.programs.map((p) => (
                       <li key={p} className="flex items-start gap-2 text-sm text-white/90">
@@ -1287,10 +1382,10 @@ function Services() {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Phone,  bg: "bg-white/20", content: <span><a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">+91 88859 49498</a>{" | "}<a href="tel:+917396949498" className="text-white hover:text-yellow-200 transition-colors">73969 49498</a>{" | "}<a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">88859 49498</a></span> },
-                  { icon: Mail,   bg: "bg-white/20",  content: <a href="mailto:info@aroverseasconsultancy.com" className="text-white hover:text-yellow-200 transition-colors">info@aroverseasconsultancy.com</a> },
+                  { icon: Phone,  bg: "bg-white/20", content: <span><a href="tel:+917396949498" className="text-white hover:text-yellow-200 transition-colors">+91 73969 49498</a>{" | "}<a href="tel:+918885949498" className="text-white hover:text-yellow-200 transition-colors">+91 88859 49498</a>{" | "}<a href="tel:+918142445464" className="text-white hover:text-yellow-200 transition-colors">+91 81424 45464</a></span> },
+                  { icon: Mail,   bg: "bg-white/20", content: <a href="mailto:info@aroverseasconsultancy.com" className="text-white hover:text-yellow-200 transition-colors">info@aroverseasconsultancy.com</a> },
                   { icon: MapPin, bg: "bg-white/20", content: <span className="text-white/90">Plot No. 53, HIG Phase 1, Rajeshwari Complex, Vanasthalipuram, Hyderabad – 500070</span> },
-                  { icon: Clock,  bg: "bg-white/20",  content: <span className="text-white/90">Mon–Sat: 09:00 AM – 06:00 PM</span> },
+                  { icon: Clock,  bg: "bg-white/20", content: <span className="text-white/90">Mon–Sat: 9 AM – 8 PM</span> },
                 ].map((row, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className={`h-8 w-8 rounded-lg ${row.bg} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-lg backdrop-blur-sm`}>

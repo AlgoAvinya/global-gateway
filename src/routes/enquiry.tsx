@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import heroDefault from "@/assets/enquiry.png";
 
 export const Route = createFileRoute("/enquiry")({
@@ -16,22 +17,25 @@ export const Route = createFileRoute("/enquiry")({
   component: Enquiry,
 });
 
+// ─── YOUR EMAILJS CREDENTIALS ─────────────────────────────────────────────────
+// Replace these with your actual values from https://www.emailjs.com/
+const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
+const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // e.g. "aBcDeFgHiJkLmNoP"
+
 // ─── Shared easing ─────────────────────────────────────────────────────────────
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Stagger container — children animate in sequence
 const staggerContainer = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
 };
 
-// Generic fade-up for any child
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
 };
 
-// Fade-in only (for overlays / breadcrumb)
 const fadeIn = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { duration: 0.5, ease } },
@@ -40,13 +44,35 @@ const fadeIn = {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 function Enquiry() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending]     = useState(false);
+  const [error, setError]         = useState<string | null>(null);
+  const formRef                   = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      setSubmitted(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <>
       {/* ── Hero ── */}
       <section className="relative isolate overflow-hidden text-secondary-foreground" style={{ marginTop: -120 }}>
-
-        {/* Background image — zoom-in entrance */}
         <motion.div
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -60,7 +86,6 @@ function Enquiry() {
           />
         </motion.div>
 
-        {/* Gradient overlay — fade in slightly after image */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -68,7 +93,6 @@ function Enquiry() {
           className="absolute inset-0 -z-10 bg-gradient-to-r from-secondary/75 via-secondary/35 to-transparent"
         />
 
-        {/* Radial accents */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.2 }}
@@ -80,7 +104,6 @@ function Enquiry() {
           }}
         />
 
-        {/* Hero text — staggered children */}
         <motion.div
           className="container mx-auto px-4 py-20 md:py-28 relative z-10"
           variants={staggerContainer}
@@ -90,14 +113,12 @@ function Enquiry() {
           <motion.div variants={fadeUp} className="text-[11px] uppercase tracking-[0.3em] text-brand-gold mb-3 font-semibold">
             AR Overseas Consultancy (OPC) Pvt. Ltd.
           </motion.div>
-
           <motion.h1
             variants={fadeUp}
             className="font-display text-4xl md:text-6xl font-bold mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
           >
             Enquiry
           </motion.h1>
-
           <motion.div variants={fadeIn} className="text-sm text-brand-gold flex items-center gap-2">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <span>›</span>
@@ -116,7 +137,6 @@ function Enquiry() {
             transition={{ duration: 0.65, ease }}
             className="bg-card rounded-3xl shadow-elegant border border-border p-8 md:p-12"
           >
-            {/* Card header — staggered */}
             <motion.div
               className="text-center mb-10"
               variants={staggerContainer}
@@ -168,7 +188,8 @@ function Enquiry() {
               </motion.div>
             ) : (
               <motion.form
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                ref={formRef}
+                onSubmit={handleSubmit}
                 className="space-y-5"
                 variants={staggerContainer}
                 initial="hidden"
@@ -176,46 +197,64 @@ function Enquiry() {
                 viewport={{ once: true, margin: "-40px" }}
               >
                 <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
-                  <FormInput label="Full Name" name="name" required />
-                  <FormInput label="Email" name="email" type="email" required />
-                  <FormInput label="Mobile Number" name="phone" type="tel" required />
-                  <FormInput label="Address" name="address" required />
+                  {/* name attributes must match your EmailJS template variables */}
+                  <FormInput label="Full Name"      name="from_name"  required />
+                  <FormInput label="Email"          name="from_email" type="email" required />
+                  <FormInput label="Mobile Number"  name="phone"      type="tel" required />
+                  <FormInput label="Address"        name="address"    required />
                 </motion.div>
 
                 <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
                   <FormSelect
                     label="Service"
-                    options={["Overseas Education", "Nursing Jobs in Germany", "Ausbildung", "Visa Guidance", "German Language", "IELTS / TOEFL"]}
+                    name="service"
+                    options={["Overseas Education", "Nursing Jobs in Germany", "Ausbildung", "Visa Guidance", "German Language", "IELTS / GRE / TOEFL / PTE"]}
                   />
                   <FormSelect
                     label="Country"
-                    options={["Germany", "USA", "UK", "Canada", "Australia", "New Zealand", "EU Countries"]}
+                    name="country"
+                    options={["Germany", "USA", "UK", "Canada", "Australia", "New Zealand", "EU Countries", "Other Country"]}
                   />
                 </motion.div>
 
+                {/* File uploads — EmailJS cannot attach files from a static site.      */}
+                {/* These are kept for UX but won't be emailed. Consider Cloudinary or  */}
+                {/* a note telling applicants to reply with attachments if needed.       */}
                 <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
-                  <FormFile label="Education Profile" />
-                  <FormFile label="Certification Upload" />
+                  <FormFile label="Education Profile (optional)" />
+                  <FormFile label="Certification Upload (optional)" />
                 </motion.div>
 
                 <motion.div variants={fadeUp}>
                   <label className="text-sm font-medium text-secondary block mb-2">Description</label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200"
                     placeholder="Tell us about your goals..."
                   />
                 </motion.div>
 
+                {error && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-sm text-red-500 text-center"
+                  >
+                    {error}
+                  </motion.p>
+                )}
+
                 <motion.div variants={fadeUp}>
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={sending}
+                    whileHover={sending ? {} : { scale: 1.02 }}
+                    whileTap={sending ? {} : { scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand text-primary-foreground px-8 py-4 font-semibold shadow-glow"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand text-primary-foreground px-8 py-4 font-semibold shadow-glow disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Enquiry <Send className="h-4 w-4" />
+                    {sending ? "Sending…" : <><Send className="h-4 w-4" /> Submit Enquiry</>}
                   </motion.button>
                 </motion.div>
               </motion.form>
@@ -232,8 +271,7 @@ function FormInput({ label, ...props }: { label: string } & React.InputHTMLAttri
   return (
     <div>
       <label className="text-sm font-medium text-secondary block mb-2">
-        {label}
-        {props.required && " *"}
+        {label}{props.required && " *"}
       </label>
       <input
         {...props}
@@ -244,15 +282,16 @@ function FormInput({ label, ...props }: { label: string } & React.InputHTMLAttri
   );
 }
 
-function FormSelect({ label, options }: { label: string; options: string[] }) {
+function FormSelect({ label, name, options }: { label: string; name: string; options: string[] }) {
   return (
     <div>
       <label className="text-sm font-medium text-secondary block mb-2">{label}</label>
-      <select className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200">
+      <select
+        name={name}
+        className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200"
+      >
         <option>--- Select {label} ---</option>
-        {options.map((o) => (
-          <option key={o}>{o}</option>
-        ))}
+        {options.map((o) => <option key={o}>{o}</option>)}
       </select>
     </div>
   );

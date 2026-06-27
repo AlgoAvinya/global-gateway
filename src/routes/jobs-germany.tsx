@@ -60,33 +60,25 @@ const workCulture = [
 ];
 
 const eligibility = [
-  "Registered Nurse holding a valid license",
-  "Seeking a career in Germany",
-  "Qualification: BSc / MSc Nursing or GNM",
-  "German Language: B1 / B2 (Goethe, telc, ÖSD)",
-  "Age preferred below 42 years",
-  "Experience: Freshers & experienced nurses welcome",
+  "Registered Nurse holding a valid nursing license",
+  "Interested in pursuing a nursing career in Germany",
+  "Qualification: GNM / B.Sc Nursing / M.Sc Nursing",
+  "German Language Proficiency: B2 Level – (Goethe, telc, or ÖSD)",
+  "Age: below 42 years",
+  "Experience: Freshers and experienced nurses are welcome to apply",
 ];
 
 const basicRequirements = [
-  "GNM / B.Sc / M.Sc Nursing",
-  "Minimum 1–2 years experience (preferred)",
-  "German B1 Language Certification",
-  "German language proficiency (B1/B2)",
-  "Valid passport",
-  "Medical fitness certificate",
+  "GNM / B.Sc Nursing / M.Sc Nursing Certificates along with Transcripts",
+  "Valid Passport",
+  "Nursing Registration Certificate / License",
+  "German Language Proficiency Certificate B2 Level – (Goethe, telc, or ÖSD)",
+  "Updated Resume/CV and SOP",
+  "Medical Fitness Certificate",
+  "Experience Certificates (if applicable)",
+  "Any other documents as required by the employer or German authorities",
 ];
 
-const documents = [
-  "Nursing degree / diploma",
-  "Nursing registration certificate",
-  "Academic transcripts",
-  "Experience certificates",
-  "Passport",
-  "Updated CV",
-  "Passport-size photographs",
-  "Police clearance certificate",
-];
 
 const langLevels = [
   { lvl: "A1", name: "Beginner",     time: "1.5 Months", desc: "Basic vocabulary, self-introduction, simple questions, everyday words.",                                      active: true,  redAccent: false },
@@ -302,9 +294,8 @@ function JobsGermany() {
   }, []);
 
   const requirementTabs = [
-    { title: "✅ Eligibility",        items: eligibility,        note: null },
-    { title: "🎓 Requirements",       items: basicRequirements,  note: null },
-    { title: "📄 Documents Required", items: documents,          note: "We guide you step-by-step to ensure all documentation meets German standards." },
+    { title: "✅ Who Can Apply",        items: eligibility,        note: null },
+    { title: "🎓 What Documents do you Need to Submit?",       items: basicRequirements,  note: null },
   ];
 
   return (
@@ -685,6 +676,7 @@ function JobsGermany() {
               )}
             </motion.div>
           </AnimatePresence>
+          <h3 style={{textAlignLast: "center", marginTop: 20}}>We guide you step-by-step to ensure all documentation meets German standards.</h3>
         </div>
       </section>
 

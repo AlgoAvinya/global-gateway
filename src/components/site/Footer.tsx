@@ -129,6 +129,15 @@ export function Footer() {
                 German Language Training
               </Link>
             </li>
+
+            <li>
+              <Link
+                to="/services"
+                className="text-secondary-foreground/80 hover:text-brand-gold transition-colors duration-300"
+              >
+                IELTS/GRE/TOEFL/PTE Classes
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -194,7 +203,7 @@ export function Footer() {
       {/* Copyright */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-5 text-xs text-center text-secondary-foreground/70">
-          © 2025 AR Overseas Consultancy (OPC) Pvt. Ltd. · All Rights Reserved ·{" "}
+          © 2026 AR Overseas Consultancy (OPC) Pvt. Ltd. · All Rights Reserved ·{" "}
           <Link
             to="/"
             className="hover:text-brand-gold transition-colors duration-300"
@@ -203,6 +212,10 @@ export function Footer() {
           </Link>
         </div>
       </div>
+
+        <div className="container mx-auto px-4 py-5 text-xs text-center text-secondary-foreground/70">
+          Designed, Developed and Maintained By Ago Avinya Pvt. Ltd.{" "}
+        </div>
     </footer>
   );
 }

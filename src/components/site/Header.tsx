@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Menu, X, Phone, Mail, MapPin,
-  Sparkles, Plane, GraduationCap, Stethoscope, Award,
+  Menu, X, Phone, Mail, MapPin, Clock,
+  Sparkles, Plane, GraduationCap, Stethoscope, Award, BookOpen,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -10,18 +10,19 @@ const nav = [
   { to: "/",             label: "Home"              },
   { to: "/about",        label: "About Us"          },
   { to: "/services",     label: "Services"          },
-  { to: "/jobs-germany", label: "Nursing in Germany"},
-  { to: "/ausbildung",   label: "Ausbildung"        },
+  { to: "/jobs-germany", label: "Nursing Jobs in Germany"},
+  { to: "/ausbildung",   label: "Ausbildung Program"        },
   { to: "/enquiry",      label: "Enquiry"           },
   { to: "/contact",      label: "Contact"           },
 ] as const;
 
 const ticker = [
-  { icon: Sparkles,      text: "Education to Employment — Your Trusted Path"               },
-  { icon: Stethoscope,   text: "Nursing Jobs in Germany — Get Started Today"                 },
-  { icon: GraduationCap, text: "Admissions Open: Germany · UK · USA · Canada · Australia"  },
-  { icon: Award,         text: "100% Visa Success · Free Career Counselling"               },
-  { icon: Plane,         text: "Ausbildung Programs — Paid Vocational Training in Germany" },
+  { icon: Sparkles,      text: "Education to Employment — Your's Trusted Path"                              },
+  { icon: Stethoscope,   text: "Nursing Jobs in Germany — Get Started Today"                               },
+  { icon: GraduationCap, text: "Admissions Open: Germany, UK, USA, Canada, Australia, Ireland and Top 27+ Countries" },
+  { icon: Award,         text: "100% Visa Success · Free Career Counselling"                               },
+  { icon: Plane,         text: "Ausbildung Programs — Vocational Training with Monthly Stipend in Germany"  },
+  { icon: BookOpen,      text: "German Language Training — A1 to B2 Certified Courses"                     },
 ];
 
 const MAPS_URL = "https://maps.app.goo.gl/wfg1DTPP2BV49h9t7";
@@ -60,19 +61,27 @@ export function Header() {
           <div className="w-full flex justify-between items-center px-4 py-1.5">
             {/* Left: phone + email */}
             <div className="flex items-center gap-5">
-              <a href="tel:+917396949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
-                <Phone className="h-3 w-3 text-brand-gold" />
-                +91 73969 49498
-              </a>
-              <a href="tel:+918885949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
-                <Phone className="h-3 w-3 text-brand-gold" />
-                +91 88859 49498
-              </a>
-              <a href="mailto:info@aroverseasconsultancy.com" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
-                <Mail className="h-3 w-3 text-brand-gold" />
-                info@aroverseasconsultancy.com
-              </a>
-            </div>
+  <a href="tel:+917396949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+    <Phone className="h-3 w-3 text-brand-gold" />
+    +91 73969 49498
+  </a>
+  <a href="tel:+918885949498" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+    <Phone className="h-3 w-3 text-brand-gold" />
+    +91 88859 49498
+  </a>
+  <a href="tel:+918142445464" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+    <Phone className="h-3 w-3 text-brand-gold" />
+    +91 81424 45464
+  </a>
+  <a href="mailto:info@aroverseasconsultancy.com" className="flex items-center gap-1.5 hover:text-brand-gold transition-colors duration-200">
+    <Mail className="h-3 w-3 text-brand-gold" />
+    info@aroverseasconsultancy.com
+  </a>
+  <span className="flex items-center gap-1.5">
+    <Clock className="h-3 w-3 text-brand-gold" />
+    Mon–Sat: 9 AM – 8 PM
+  </span>
+</div>
             {/* Right: address */}
             <a
               href={MAPS_URL}
