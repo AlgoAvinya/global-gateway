@@ -214,7 +214,7 @@ export function Footer() {
       </div>
 
         <div className="container mx-auto px-4 py-5 text-xs text-center text-secondary-foreground/70">
-          Designed, Developed and Maintained By Ago Avinya Pvt. Ltd.{" "}
+          Designed, Developed and Maintained By Algo Avinya Pvt. Ltd.{" "}
         </div>
     </footer>
   );
