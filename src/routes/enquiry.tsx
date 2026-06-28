@@ -17,13 +17,12 @@ export const Route = createFileRoute("/enquiry")({
   component: Enquiry,
 });
 
-// ─── YOUR EMAILJS CREDENTIALS ─────────────────────────────────────────────────
-// Replace these with your actual values from https://www.emailjs.com/
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // e.g. "aBcDeFgHiJkLmNoP"
+// ─── REPLACE THESE 3 VALUES ───────────────────────────────────────────────────
+const EMAILJS_SERVICE_ID  = "service_3dm3zlj";  // from Email Services
+const EMAILJS_TEMPLATE_ID = "template_c24x74q"; // from Email Templates
+const EMAILJS_PUBLIC_KEY  = "BmcfnhfqttCAsQZqU";     // from Account → General
+// ─────────────────────────────────────────────────────────────────────────────
 
-// ─── Shared easing ─────────────────────────────────────────────────────────────
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const staggerContainer = {
@@ -41,7 +40,6 @@ const fadeIn = {
   show: { opacity: 1, transition: { duration: 0.5, ease } },
 };
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 function Enquiry() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending]     = useState(false);
@@ -197,11 +195,10 @@ function Enquiry() {
                 viewport={{ once: true, margin: "-40px" }}
               >
                 <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
-                  {/* name attributes must match your EmailJS template variables */}
-                  <FormInput label="Full Name"      name="from_name"  required />
-                  <FormInput label="Email"          name="from_email" type="email" required />
-                  <FormInput label="Mobile Number"  name="phone"      type="tel" required />
-                  <FormInput label="Address"        name="address"    required />
+                  <FormInput label="Full Name"     name="from_name"  required />
+                  <FormInput label="Email"         name="from_email" type="email" required />
+                  <FormInput label="Mobile Number" name="phone"      type="tel" required />
+                  <FormInput label="Address"       name="address"    required />
                 </motion.div>
 
                 <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
@@ -217,13 +214,7 @@ function Enquiry() {
                   />
                 </motion.div>
 
-                {/* File uploads — EmailJS cannot attach files from a static site.      */}
-                {/* These are kept for UX but won't be emailed. Consider Cloudinary or  */}
-                {/* a note telling applicants to reply with attachments if needed.       */}
-                <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-5">
-                  <FormFile label="Education Profile (optional)" />
-                  <FormFile label="Certification Upload (optional)" />
-                </motion.div>
+              
 
                 <motion.div variants={fadeUp}>
                   <label className="text-sm font-medium text-secondary block mb-2">Description</label>
@@ -266,7 +257,6 @@ function Enquiry() {
   );
 }
 
-// ─── Field helpers ─────────────────────────────────────────────────────────────
 function FormInput({ label, ...props }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
