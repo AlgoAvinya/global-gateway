@@ -13,7 +13,7 @@ interface PageHeroProps {
 export function PageHero({ title, crumb, subtitle, image = heroDefault, marquee }: PageHeroProps) {
   const strip = marquee ?? [
     "AR Overseas Consultancy (OPC) Pvt. Ltd.",
-    "Education to Employment — Your Trusted Path",
+    "Education to Employment — Your's Trusted Path",
     "Germany · UK · USA · Canada · Australia · Ireland",
     "Nursing Jobs · Ausbildung · Study Abroad",
     "100% End-to-End Support",

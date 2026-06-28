@@ -373,7 +373,7 @@ function JobsGermany() {
           variants={fadeUp}
           className="text-white/75 text-lg leading-relaxed max-w-xl mb-8"
         >
-          Your trusted pathway to a successful nursing career in Germany —
+          Your's trusted pathway to a successful nursing career in Germany —
           from classroom to career, we walk with you every step.
         </motion.p>
 

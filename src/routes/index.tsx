@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AR Overseas Consultancy — Education to Employment, Your Trusted Path" },
+      { title: "AR Overseas Consultancy — Education to Employment, Your's Trusted Path" },
       { name: "description", content: "Trusted partner for Overseas Education & Healthcare Recruitment. Study or work abroad in Germany, UK, USA, Canada, Australia & EU." },
       { property: "og:title", content: "AR Overseas Consultancy — Education to Employment" },
       { property: "og:description", content: "Empowering Indian students & nurses with global career opportunities." },
@@ -305,7 +305,7 @@ useEffect(() => {
             textShadow: "0 4px 20px rgba(0,0,0,0.8)",
           }}
         >
-          Your Trusted Path.
+          Your's Trusted Path.
         </span>
       </h1>
 
@@ -315,7 +315,7 @@ useEffect(() => {
           textShadow: "0 2px 12px rgba(0,0,0,0.8)",
         }}
       >
-        Your trusted partner for Overseas Education & Healthcare Recruitment.
+        Your's trusted partner for Overseas Education & Healthcare Recruitment.
         We turn your dream of studying or working abroad into reality.
       </p>
 
@@ -540,7 +540,7 @@ useEffect(() => {
               <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Who We Are?</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-5 text-secondary">Welcome to AR Overseas Consultancy</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Your trusted partner for Overseas Education & Healthcare Recruitment. We are committed to empowering Indian students and nursing professionals with global career opportunities through transparent processes, expert guidance, and trusted European partnerships.
+                Your's trusted partner for Overseas Education & Healthcare Recruitment. We are committed to empowering Indian students and nursing professionals with global career opportunities through transparent processes, expert guidance, and trusted European partnerships.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 {[["100%", "Career Counselling"], ["100%", "Admission Guidance"], ["100%", "Visa Guidance"]].map(([n, l]) => (

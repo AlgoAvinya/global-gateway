@@ -18,7 +18,7 @@ export const Route = createFileRoute("/contact")({
 // ─── Data ──────────────────────────────────────────────────────────────────────
 const STRIP = [
   "AR Overseas Consultancy (OPC) Pvt. Ltd.",
-  "Education to Employment — Your Trusted Path",
+  "Education to Employment — Your's Trusted Path",
   "Germany · UK · USA · Canada · Australia · Ireland",
   "Nursing Jobs · Ausbildung · Study Abroad",
   "100% End-to-End Support",

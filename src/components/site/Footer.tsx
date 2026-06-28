@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import {
   Facebook,
   Instagram,
+  Youtube,
   Mail,
   MapPin,
   Phone,
@@ -47,6 +48,16 @@ export function Footer() {
             >
               <Instagram className="h-4 w-4" />
             </a>
+            {/* YouTube */}
+<a
+  href="https://www.youtube.com/@AROVERSEASCONSULTANCY"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="YouTube"
+  className="h-9 w-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+>
+  <Youtube className="h-4 w-4" />
+</a>
           </div>
         </div>
 
