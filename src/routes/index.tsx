@@ -63,9 +63,9 @@ const skills = [
 ];
 
 const testimonials = [
-  { name: "Sai Madhav", text: "I will recommend AR to my friends and others. The information I got from Harsha bro about Germany is genuine and unbiased. With the information I had forehand, I did not come across any surprises when I landed in Germany." },
-  { name: "Vijay Kumar", text: "It has been an amazing experience with AR. From counselling, until I arrived in Germany, AR took care of everything. I should also thank Anil Kumar for receiving me and guiding me to settle down quickly." },
-  { name: "Ram Reddy", text: "My experience with AR was very good. Anil Kumar sir assisted me in selection of university and course. The best part is AR helped me find an accommodation before I arrived." },
+  { name: "Sai Madhav", text: "I will recommend AR Overseas Consultancy(OPC) to my friends and others. The information I got from Harsha bro about Germany is genuine and unbiased. With the information I had forehand, I did not come across any surprises when I landed in Germany." },
+  { name: "Vijay Kumar", text: "It has been an amazing experience with AR Overseas Consultancy(OPC). From counselling, until I arrived in Germany, AR Overseas Consultancy(OPC) took care of everything. I should also thank Anil for receiving me and guiding me to settle down quickly." },
+  { name: "Ram Reddy", text: "My experience with AR Overseas Consultancy(OPC) was very good. Anil sir assisted me in selection of university and course. The best part is AR helped me find an accommodation before I arrived." },
 ];
 
 const processSteps = [

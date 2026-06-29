@@ -732,7 +732,7 @@ function Ausbildung() {
                 { label: "Duration", value: "2 – 3.5 Years" },
                 { label: "Certificate", value: "Gesellenbrief (EU Valid)" },
                 { label: "Stipend", value: "€600 – €1,200 / month" },
-                { label: "Eligibility", value: "12th / Diploma / GraduaƟon + B1 / B2 German" },
+                { label: "Eligibility", value: "12th / Diploma / Graduation + B1 / B2 German" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
                   <span className="text-[10px] font-bold uppercase tracking-wider w-20 flex-shrink-0" style={{ color: "rgba(26,63,160,0.45)" }}>{item.label}</span>
@@ -874,7 +874,7 @@ function Ausbildung() {
 
       {/* ══ MARQUEE 2 ═════════════════════════════════════════════════════════ */}
       <div className="py-3 overflow-hidden" style={{ background: "#F0F4FF", borderBottom: "1px solid rgba(26,63,160,0.1)" }}>
-        <Marquee items={["No Tuition Fees", "Monthly SƟpend with Training", "B2 Level German Required", "Age 18–27", "Globally Recognised Certificate", "PR Pathway after Completion", "Job After Training with 2500 Euros to 3500 Euros Monthly Salary"]} speed={40} reverse />
+        <Marquee items={["No Tuition Fees", "Monthly Stipend with Training", "B2 Level German Required", "Age 18–27", "Globally Recognised Certificate", "PR Pathway after Completion", "Job After Training with 2500 Euros to 3500 Euros Monthly Salary"]} speed={40} reverse />
       </div>
 
       {/* ══ PROGRAMS ══════════════════════════════════════════════════════════ */}
